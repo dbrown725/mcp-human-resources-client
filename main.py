@@ -23,7 +23,7 @@ def start_subprocess():
     logging.info("start_subprocess")
     global process
     # Start the subprocess
-    process = subprocess.Popen(['python', 'mcp_spring_weather.py'], 
+    process = subprocess.Popen(['python', 'agent.py'], 
                                stdin=subprocess.PIPE, 
                                stdout=subprocess.PIPE, 
                                stderr=subprocess.PIPE, 

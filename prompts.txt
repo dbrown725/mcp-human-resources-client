@@ -1,0 +1,58 @@
+Elastic Search related
+    Search all the 'content' field in the employee_code_of_conduct_policies index for the term "passwords", include the source_url field in the results. Display all the results.
+
+Playwright related
+    All one prompt
+        Step 1) Navigate to https://markets.businessinsider.com/commodities, collect the current Agriculture prices. 
+        Step 2) Write a brief sentence describing the prices. 
+        Step 3) Save a draft email: email recipient address = john.doe@megacorp.com, email subject = "Agriculture Prices" and 
+        the body of the email = Your brief sentence from step 2 and an actual listing of the Agriculture prices. 
+        Include a blank line between your brief sentence and the prices. Put the individual Agriculture prices on separate lines if possible.
+        Close and release the browser when complete.
+
+    Navigate to https://markets.businessinsider.com/commodities, find the "Stocks" link, click on the "Stocks" link, find the "Stock News" section and write a summary of the Stock News sections. Close and release the browser when complete.
+    
+    Navigate to https://finance.yahoo.com/lookup/, find the input field that contains the "Quote Lookup" placeholder, use it to search for APPL and show me any relevant information including the current stock price. Close and release the browser when complete.
+
+    Navigate to https://dnr.maryland.gov/publiclands/Pages/wedding-events.aspx. Click on the "WYE ISLAND NRMA" link and return a summary of the "WYE ISLAND NRMA" page's content for display.
+
+
+Brave Search related
+    Search the web for the band "Pixies" and show me the top ten results.
+
+    Two related prompts
+        First run
+        I have a csv file I need to fill out for the company Morgan Stanley in New York, New York. Here is the csv file column headers: company_name,company_bio,services_and_products,entity_type,street_address_1,street_address_2,city,state,zip_code,phone_number,website,social_media_facebook,social_media_twitter,social_media_linkedin,social_media_youtube. Based on your knowledge can you help me collect the data.
+
+        Second run
+        That is good. Let us include that in a draft email. Email Recipient: john.doe@megacorp.com, Email Subject: Morgan Stanley and the Body: will be a brief paragraph you write for me on why Morgan Stanley is a great company for purchasing ETFs and Mutual Funds. Under the paragraph include the csv data just as you returned it to me. Please include the appropriate line breaks and new lines in the body.
+
+
+Employee Database related prompts
+    From https://www.bls.gov/cps/cpsaat11.htm, here are the national demographic percentages for Sales managers.
+      Women: 32.9, white: 87.4, Black: 7.8, Asian: 3.1, Latino: 10.2
+    Search our employees for Department: Sales, Title: Manager, Page size: 20 and write a paragraph or two that describes how my company's employees compare.
+    Afterwards create a draft email to john.doe@megacorp.com with subject: Sales Manager's demographics. Include in the body of the email a reference to the bls url and their stats plus your paragraphs describing how our employees compare.
+
+    How many employees in IT are asian?
+
+    Search for employees which are in the Sales department and are Asian. Sort by age ascending. Give me the first page of size 10 and format the results horizontally.
+    Note: You can page through the results in your next prompts: "Page 2" then "Page 3" etc..
+
+
+    I need employee head count for each department. 
+    Run separate count queries for each of the following departments: Accounting, Engineering, Finance, Human Resources, IT, Marketing, Sales.
+    For each department I want to know how many males we have and how many females we have. 
+    For each department I want to know how many Asian, Black, Caucasian, Latino we have.
+    Display for each Department, Total count, Male count, Female count, Asian count, Black count, Caucasian count, Latino count
+
+Geo lookup related
+    Show me the longitude and latitude of Boston, Massachusetts.
+
+Addition related
+
+    What is 22 plus six, show result in English.
+    
+    (Same question Japaneese)
+    22 に 6 を足すと何になるか、結果を英語で表示します        
+

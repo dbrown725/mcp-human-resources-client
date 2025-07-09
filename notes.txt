@@ -1,0 +1,26 @@
+Run with the latest python, node and npm
+git clone https://github.com/dbrown725/mcp-host-ui-local.git
+If uv not installed
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    You may need to close your terminal and open a new one afterwards.
+uv venv    
+source .venv/bin/activate
+uv pip install -r requirements.txt
+
+npm i @executeautomation/playwright-mcp-server
+
+//if using GROQ
+export GROQ_API_KEY=<YOUR_GROQ_API_KEY>
+//if using Google Gemini
+export GEMINI_API_KEY=<YOUR_GEMINI_API_KEY>
+//Email configuration, currently only Save Draft is fully hooked up.
+//Password in NOT your normal gmail password, the password needs to be an APP password: https://support.google.com/mail/answer/185833?hl=en
+export GMAIL_EMAIL_ADDRESS=<GMAIL_ADDRESSS>
+export GMAIL_EMAIL__APP_PASSWORD=<GMAIL_APP_PASSWORD>
+sudo mkdir /var/log/mcp-human-resources-client
+sudo touch /var/log/mcp-human-resources-client/mcp-human-resources-client.log
+sudo chmod -R 777 /var/log/mcp-human-resources-client
+//Follow Logfire Getting Started instructions: https://logfire.pydantic.dev/docs/
+//Sign up the free plan and generate an API key on Brave Search API: https://brave.com/search/api/
+// To Run
+python3 main.py

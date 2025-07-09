@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MCP HOST</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <div class="title">MCP HOST</div>
+    <div class="introduction">Welcome, enter a prompt to get started.</div>
+    <div id="output">
+    </div>
+    <div id="spinner"></div>
+    <div class="input-container">
+        <textarea id="myInput" placeholder="Enter your input here"
+            oninput="this.style.height = ''; this.style.height = this.scrollHeight + 
+                'px'; if (this.value === '') this.style.height = 'initial';"></textarea>
+        <!-- <select id="recent-inputs"></select>        -->
+        <span class="arrow-icon"><i class="fas fa-arrow-alt-circle-up"></i></span>
+    </div>
+    <div class="new-chat-container">
+        <button id="toolsInUseButton" title="Opens a modal showing tools currently in use.">Tools In Use</button>
+        <button id="recentSearchesButton" title="Opens a modal containing selectable recent searches.">Recent Searches</button>
+        <button id="newChatButton" title="Clears the chat history and resets screen">New Chat</button>
+    </div>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="recent-close">&times;</span>
+            <p>Some text in the Modal..</p>
+            <div id="recent-inputs"></div>  
+        </div>
+    </div>
+    <div id="toolsModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="tools-close">&times;</span>
+            <p>Tools currently in use:</p>
+            <div id="toolsInUse"></div>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(33, 33, 33)
+}
+
+a {
+    color:rgb(168, 199, 250)
+}
+
+.title {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    font-size: xxx-large;
+}
+
+.introduction {
+    color: white;
+    font-size: 24px;
+    margin-left: 150px;
+    margin-top: 20px;
+}
+
+.input-container {
+    position: relative;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.input-container textarea {
+    width: 100%;
+    height: 60px;
+    margin: 50px 0 0;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: large;
+    background-color: #303030;
+    color: #fff;
+    box-sizing: border-box;
+    padding-right: 30px;
+}
+
+textarea {
+    scrollbar-width: thin;
+    scrollbar-color: grey;
+    /* thumb and track colors */
+    overflow: hidden;
+}
+
+textarea:hover {
+    scrollbar-color: grey;
+    /* thumb color on hover */
+}
+
+textarea::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: rgb(33, 33, 33);
+    border-radius: 5px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background-color: rgb(33, 33, 33);
+}
+
+textarea::-moz-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+textarea::-moz-scrollbar-thumb {
+    background-color: rgb(33, 33, 33);
+    border-radius: 5px;
+}
+
+textarea::-moz-scrollbar-track {
+    background-color: rgb(33, 33, 33);
+}
+.arrow-icon {
+    position: absolute;
+    right: 23px;
+    top: 66%;
+    /* Changed from 80% to 50% to vertically center the icon */
+    transform: translateY(-50%);
+    color: grey;
+    cursor: pointer;
+    font-size: 41px;
+    /* Adjust font size to make the icon fatter or larger */
+}
+
+.arrow-icon:hover {
+    color: black;
+}
+
+#output {
+    margin: 20px 50px 20px 150px;
+    padding: 10px;
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+.prompt {
+    font-weight: bold;
+    background-color: rgba(50, 50, 50, 0.85) !important;
+    padding: 20px;
+    margin: 20px 40px 0 100px;
+    display: inline-block;
+    max-width: 90%;
+    word-wrap: break-word;
+    border: 1px solid #ccc;
+    border-radius: 45px;
+}
+
+.error {
+    font-weight: bold;
+    background-color: lightcoral !important;
+    padding: 20px;
+    margin: 20px 40px 0 100px;
+    display: inline-block;
+    max-width: 90%;
+    word-wrap: break-word;
+    border: 1px solid #ccc;
+    border-radius: 45px;
+}
+
+#output p, #output ul, #output h3{
+    color: white;
+}
+
+#output ol {
+    padding: 5px;
+    color: white;
+}
+
+.new-chat-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Add some space between buttons */
+}
+
+#newChatButton,#recentSearchesButton,#toolsInUseButton {
+    background-color: #303030;
+    color: grey;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: large;
+}
+#newChatButton:hover,#recentSearchesButton:hover,#toolsInUseButton:hover {
+    background-color: black;
+}
+#newChatButton:focus,#recentSearchesButton:focus,#toolsInUseButton:focus {
+    outline: none;
+}
+#newChatButton:active,#recentSearchesButton:active,#toolsInUseButton:active {
+    background-color: black;
+}
+
+#spinner {
+    position: absolute;
+    top: calc(80% - 20px); /* Adjusted to be 50px above the input-container */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader {
+    border: 6px solid grey;
+    border-top: 6px solid #303030;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#recent-inputs {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  display: block;
+  width: 100%;
+}
+
+.recent-input {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  width: 95%;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.recent-input:hover {
+  background-color: #f0f0f0;
+}
+
+.grey-bg {
+  background-color: #f7f7f7;
+}
+
+.white-bg {
+  background-color: #fff;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

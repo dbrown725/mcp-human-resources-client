@@ -1,0 +1,8 @@
+pydantic-ai
+logfire
+eel
+python-docx
+markdownify
+pandas
+geopy
+

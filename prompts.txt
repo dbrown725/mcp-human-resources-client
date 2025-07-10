@@ -1,4 +1,8 @@
 Elastic Search related
+    Show me all custom indices
+
+    Show me mappings for the employee_code_of_conduct_policies index
+
     Search all the 'content' field in the employee_code_of_conduct_policies index for the term "passwords", include the source_url field in the results. Display all the results.
 
 Playwright related

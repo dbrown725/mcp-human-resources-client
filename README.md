@@ -14,7 +14,7 @@ You may need to close your terminal and open a new one afterwards.
 2. Clone the repository:
 
 ```bash
-git clone https://github.com/dbrown725/mcp-host-ui-local.git
+git clone https://github.com/dbrown725/mcp-human-resources-client.git
 cd mcp-human-resources-client
 ```
 
@@ -23,7 +23,8 @@ cd mcp-human-resources-client
 ```bash
 uv venv
 source .venv/bin/activate
-
+#Later to exit your virtual environment
+deactivate
 ```
 4. Install Node module(s):
 ```bash

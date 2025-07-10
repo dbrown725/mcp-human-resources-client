@@ -65,15 +65,17 @@ sudo chmod -R 777 /var/log/mcp-human-resources-client
 10. If testing against the mcp-human-resources Spring Boot app<br>
     Clone, build and run: https://github.com/dbrown725/mcp-human-resources
 
-11. Update the agent object instantiation in agent.py with specific tools and mcp servers you are using.<br><br>
+11. Update the agent object instantiation in agent.py with specific tools, model and mcp servers you are using.<br><br>
     For instance if you aren't using gmail then:<br>
         tools=[tools.add, tools.saveDraftEmailContent, tools.getGeoLocation],<br>
     changes to<br>
         tools=[tools.add, tools.getGeoLocation], <br><br>
-if you aren't using the mcp-human-resources Spring Boot app then<br>
+    if you aren't using the mcp-human-resources Spring Boot app then<br>
     mcp_servers=[servers.playwright_mcp_server, servers.mcp_human_resources_server])<br>
     changes to<br>
-    mcp_servers=[servers.playwright_mcp_server])
+    mcp_servers=[servers.playwright_mcp_server])<br><br>
+    Configure your preferred model, see Pydantic AI guide:<br>
+    https://ai.pydantic.dev/models/
 
 12. To Run<br>
         If using mcp_human_resources_server make sure the app is started<br>
@@ -81,4 +83,4 @@ if you aren't using the mcp-human-resources Spring Boot app then<br>
         python3 main.py
 
 13. For sample prompts see:<br>
-        promts.txt        
+        prompts.txt        

@@ -51,6 +51,9 @@ async def main():
                 user_input = user_input.strip()
                 if(user_input == "NEW_CHAT"):
                     result = await agent.run("Display: 'Message history cleared, a new chat session has now started.'",message_history="")
+                elif(user_input == "KEEP_ALIVE"):
+                    logger.info(f"In KEEP_ALIVE, User input: {user_input}")
+                    result = await agent.run("Execute Keep Alive command one time only, do not repeat this command again.",)
                 else:
                     result = await agent.run(user_input, 
                                             message_history=result.new_messages())

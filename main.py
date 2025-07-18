@@ -3,6 +3,8 @@ import subprocess
 import threading
 import logging
 import re
+import time
+
 # Configure logging
 logging.basicConfig(
     filename='/var/log/mcp-human-resources-client/mcp-human-resources-client.log',
@@ -18,6 +20,9 @@ eel.init('web')
 
 # Global variable to hold the subprocess
 process = None
+
+# Global variable to track the last time send_input was executed
+last_send_input_time = time.time()
 
 def start_subprocess():
     logging.info("start_subprocess")
@@ -53,9 +58,31 @@ def start_subprocess():
                 break
     threading.Thread(target=read_output).start()
 
+def check_send_input_time():
+    global last_send_input_time
+    global process
+    while True:
+        time.sleep(120)  # Check every 2 minutes
+        if time.time() - last_send_input_time >= 120:  # If 2 minutes have passed
+            if process:
+                try:
+                    process.stdin.write("KEEP_ALIVE" + '\n')
+                    process.stdin.flush()
+                    logging.info("KEEP_ALIVE command sent")
+                except Exception as e:
+                    logging.error("exception caught", e)
+                    eel.displayOutput(f"Error: {str(e)}")
+        else:
+            logging.info("send_input executed within the last 2 minutes")
+
+# Start the check_send_input_time thread
+threading.Thread(target=check_send_input_time).start()
+
 @eel.expose
 def send_input(user_input):
+    global last_send_input_time
     global process
+    last_send_input_time = time.time()  # Update the last send_input time
     if process:
         try:
             process.stdin.write(user_input + '\n')

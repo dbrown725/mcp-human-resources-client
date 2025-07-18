@@ -36,7 +36,7 @@ Employee Database related prompts
     Search our employees for Department: Sales, Title: Manager, Page size: 20 and write a paragraph or two that describes how my company's employees compare.
     Afterwards create a draft email to john.doe@megacorp.com with subject: Sales Manager's demographics. Include in the body of the email a reference to the bls url and their stats plus your paragraphs describing how our employees compare.
 
-    How many employees in IT are asian?
+    How many employees in IT are Asian? Show the results.
 
     Search for employees which are in the Sales department and are Asian. Sort by age ascending. Give me the first page of size 10 and format the results horizontally.
     Note: You can page through the results in your next prompts: "Page 2" then "Page 3" etc..

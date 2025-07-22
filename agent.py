@@ -20,7 +20,9 @@ logfire.configure()
 
 try:
     # agent = Agent('groq:deepseek-r1-distill-llama-70b',
-    agent = Agent('google-gla:gemini-2.5-flash-preview-05-20',
+    agent = Agent('groq:moonshotai/kimi-k2-instruct', 
+    # agent = Agent('google-gla:gemini-2.5-flash-preview-05-20',    
+    # agent = Agent('google-gla:gemini-2.5-flash-preview-06-17',
     # agent = Agent('google-gla:gemini-2.5-flash-lite-preview-06-17',            
     # agent = Agent('google-gla:gemini-2.0-flash', 
                     instrument=True,

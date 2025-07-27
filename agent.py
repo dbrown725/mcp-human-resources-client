@@ -39,7 +39,7 @@ except Exception as e:
 
 async def main():
     async with agent.run_mcp_servers():
-        initial_prompt = 'Introduce yourself and list all tools/functions separated into groups.'
+        initial_prompt = 'Introduce yourself and list all tools/functions separated into a category-based layout with each category title having a category speific icon'
         
         logger.info("Before agent.run()")
         result = await agent.run(initial_prompt)

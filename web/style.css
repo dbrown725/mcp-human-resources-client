@@ -128,7 +128,7 @@ textarea::-moz-scrollbar-track {
     border-radius: 45px;
 }
 
-#output p, #output ul, #output h3{
+#output p, #output ul, #output h2, #output h3{
     color: white;
 }
 

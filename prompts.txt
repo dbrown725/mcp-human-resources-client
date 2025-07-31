@@ -36,7 +36,7 @@ Employee Database related prompts
     Search our employees for Department: Sales, Title: Manager, Page size: 20 and write a paragraph or two that describes how my company's employees compare.
     Afterwards create a draft email to john.doe@megacorp.com with subject: Sales Manager's demographics. Include in the body of the email a reference to the bls url and their stats plus your paragraphs describing how our employees compare.
 
-    How many employees in IT are Asian? Show the results.
+    How many employees in IT are Asian?
 
     Search for employees which are in the Sales department and are Asian. Sort by age ascending. Give me the first page of size 10 and format the results horizontally.
     Note: You can page through the results in your next prompts: "Page 2" then "Page 3" etc..
@@ -47,6 +47,9 @@ Employee Database related prompts
     For each department I want to know how many males we have and how many females we have. 
     For each department I want to know how many Asian, Black, Caucasian, Latino we have.
     Display for each Department, Total count, Male count, Female count, Asian count, Black count, Caucasian count, Latino count
+
+    Create a new employee named John Smith.
+    Update Jim Smith with a manager id equal to 5520
 
 Geo lookup related
     Show me the longitude and latitude of Boston, Massachusetts.

@@ -14,7 +14,7 @@ Playwright related
         Include a blank line between your brief sentence and the prices. Put the individual Agriculture prices on separate lines if possible.
         Close and release the browser when complete.
 
-    Navigate to https://finance.yahoo.com/lookup/, find the input field that contains the "Quote Lookup" placeholder, use it to search for APPL and show me any relevant information including the current stock price. Close and release the browser when complete.
+    Navigate to https://finance.yahoo.com/lookup/, find the input field that contains the "Quote Lookup" placeholder, use it to search for AAPL and show me any relevant information including the current stock price. Close and release the browser when complete.
 
     Navigate to https://dnr.maryland.gov/publiclands/Pages/wedding-events.aspx. Click on the "WYE ISLAND NRMA" link and return a summary of the "WYE ISLAND NRMA" page's content for display.
 
@@ -49,7 +49,7 @@ Employee Database related prompts
     Display for each Department, Total count, Male count, Female count, Asian count, Black count, Caucasian count, Latino count
 
     Create a new employee named John Smith.
-    Update Jim Smith with a manager id equal to 5520
+    Update John Smith with a manager id equal to 5520
 
 Geo lookup related
     Show me the longitude and latitude of Boston, Massachusetts.

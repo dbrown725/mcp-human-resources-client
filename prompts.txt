@@ -59,5 +59,23 @@ Addition related
     What is 22 plus six, show result in English.
     
     (Same question Japaneese)
-    22 に 6 を足すと何になるか、結果を英語で表示します        
+    22 に 6 を足すと何になるか、結果を英語で表示します   
+
+Google Cloud Storage
+    
+    Upload to the cloud test.txt
+
+    Read the GCS file named test.txt
+
+    Read the GCS file named test.txt
+
+    List the contents of the GCS bucket expense_receipts/ directory.
+
+    Upload the file Outgoing/intellicare_solutions.jpeg to the expense_receipts Cloud directory.
+
+    Upload all files in the Outgoing directory to the expense_receipts Cloud directory.
+
+    Download from the cloud the file sample.txt to the Incoming directory.
+
+    Download from the cloud the file expense_receipts/techwave_solutions.jpg to the Incoming directory.
 

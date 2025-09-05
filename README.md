@@ -29,6 +29,7 @@ deactivate
 4. Install Node module(s):
 ```bash
 npm i @executeautomation/playwright-mcp-server
+npm i @modelcontextprotocol/server-filesystem
 ```
 
 5. Install dependencies:
@@ -36,6 +37,11 @@ npm i @executeautomation/playwright-mcp-server
 ```bash
 uv pip install -r requirements.txt
 ```
+<b> Steps 6-8 below can be skipped by creating an .env file at the base of the project and including your appropriate values.<br>
+GROQ_API_KEY=...<br>
+GMAIL_EMAIL_ADDRESS=...<br>
+GMAIL_EMAIL_APP_PASSWORD=...<br>
+LOCAL_FILE_STORAGE=...
 
 6. Export API Keys for your preferred LLM, tested with GROQ and Google Gemini:
 
@@ -53,20 +59,25 @@ export GMAIL_EMAIL_ADDRESS=<GMAIL_ADDRESSS>
 export GMAIL_EMAIL__APP_PASSWORD=<GMAIL_APP_PASSWORD>
 ```
 
-8. Setup log directory and file
+8. If using tools.upload_file_to_cloud, tools.download_file_from_cloud or servers.filesystem_mcp_server<br>
+```bash
+export LOCAL_FILE_STORAGE=<A local file directory to be used for general file access and/or uploading/downloading files.>
+``` 
+
+9. Setup log directory and file
 ```bash
 sudo mkdir /var/log/mcp-human-resources-client
 sudo touch /var/log/mcp-human-resources-client/mcp-human-resources-client.log
 sudo chmod -R 777 /var/log/mcp-human-resources-client
 ```
 
-9. Setup Logfire<br>
+10. Setup Logfire<br>
     Follow Logfire Getting Started instructions: https://logfire.pydantic.dev/docs/
 
-10. If testing against the mcp-human-resources Spring Boot app<br>
+11. If testing against the mcp-human-resources Spring Boot app<br>
     Clone, build and run: https://github.com/dbrown725/mcp-human-resources
 
-11. Update the agent object instantiation in agent.py with specific tools, model and mcp servers you are using.<br><br>
+12. Update the agent object instantiation in agent.py with specific tools, model and mcp servers you are using.<br><br>
     For instance if you aren't using gmail then:<br>
         tools=[tools.add, tools.saveDraftEmailContent, tools.getGeoLocation],<br>
     changes to<br>
@@ -78,10 +89,10 @@ sudo chmod -R 777 /var/log/mcp-human-resources-client
     Configure your preferred model, see Pydantic AI guide:<br>
     https://ai.pydantic.dev/models/
 
-12. To Run<br>
+13. To Run<br>
         If using mcp_human_resources_server make sure the app is started<br>
         then<br>
         python3 main.py
 
-13. For sample prompts see:<br>
+14. For sample prompts see:<br>
         prompts.txt        

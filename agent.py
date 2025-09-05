@@ -27,11 +27,11 @@ try:
     # agent = Agent('google-gla:gemini-2.0-flash', 
                     instrument=True,
                     retries=3,
-                    tools=[tools.add, tools.saveDraftEmailContent, tools.getGeoLocation],
+                    tools=[tools.add, tools.save_draft_email_content, tools.get_geo_location, tools.upload_file_to_cloud, tools.download_file_from_cloud],
                     system_prompt=(
                         ' You are an assistant who answers all questions. '
                     ),
-                   mcp_servers=[servers.playwright_mcp_server, servers.mcp_human_resources_server])
+                    mcp_servers=[servers.playwright_mcp_server, servers.mcp_human_resources_server, servers.filesystem_mcp_server])
 
 except Exception as e:
     logger.error(f"Failed to create agent: {e}")

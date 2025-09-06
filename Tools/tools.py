@@ -11,9 +11,11 @@ def add(a: int, b: int) -> int:
     """Adds two numbers and returns the sum."""
     return a + b
 
-def save_draft_email_content(to_email: str, subject: str, body: str):
-    """Save a draft email by providing email recipient address, email subject and the body of the email."""
-    handle_save_draft_request(to_email, subject, body,[])
+def save_draft_email_content(to_email: str, subject: str, body: str, attachment_paths: list = []) -> str:
+    """Save a draft email by providing email recipient address, email subject, body of the email and a list of attachments.
+    ****IMPORTANT**** - The allowed directory is assumed to be known by this tool, do not prepend the allowed directory to what the user
+    entered as a filename or directory/filename. This tool will prepend the allowed directory to the filename or directory/filename that were supplied by the user."""
+    handle_save_draft_request(to_email, subject, body, attachment_paths)
     return f"Draft email saved for {to_email} with subject: {subject}"
 
 def get_geo_location(city: str, state: str) -> str:

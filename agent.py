@@ -12,7 +12,7 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
-logger = logging.getLogger("mcp_spring_weather")
+logger = logging.getLogger("mcp_human_resources_client_agent")
 
 load_dotenv()
 #logfire.configure(token=os.getenv('LOGFIRE_TOKEN'))

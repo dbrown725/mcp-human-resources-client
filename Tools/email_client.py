@@ -7,6 +7,21 @@ import imaplib
 import email
 import os
 import datetime
+import logging
+
+from dotenv import load_dotenv
+
+load_dotenv() 
+
+# Configure logging
+logging.basicConfig(
+    filename='/var/log/mcp-human-resources-client/mcp-human-resources-client.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+
+logger = logging.getLogger("mcp_human_resources_client_email_client")
+
 
 # Replace these with your Gmail credentials
 EMAIL_ADDRESS = os.getenv('GMAIL_EMAIL_ADDRESS')
@@ -68,18 +83,23 @@ class GmailClient:
         # Attach the body with the msg instance
         msg.attach(MIMEText(body, 'plain'))
 
+        logger.info(f"In save_draft attachment_paths: {attachment_paths}")
+
         # Attach files if provided
         if attachment_paths:
             for attachment_path in attachment_paths:
-                if os.path.isfile(attachment_path):
-                    with open(attachment_path, "rb") as attachment:
+                logger.info(f"For loop attachment_path: {attachment_path}")
+                full_path = os.getenv('LOCAL_FILE_STORAGE') + "/" + attachment_path
+                logger.info(f"For loop full_path: {full_path}")
+                if os.path.isfile(full_path):
+                    with open(full_path, "rb") as attachment:
                         part = MIMEBase('application', 'octet-stream')
                         part.set_payload(attachment.read())
                         encoders.encode_base64(part)
                         part.add_header('Content-Disposition', f"attachment; filename= {os.path.basename(attachment_path)}")
                         msg.attach(part)
                 else:
-                    print(f"Warning: File not found: {attachment_path}")
+                    print(f"Warning: File not found: {full_path}")
 
         # Get the current date and time
         current_datetime = datetime.datetime.now()

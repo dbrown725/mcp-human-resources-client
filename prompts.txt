@@ -34,8 +34,8 @@ Employee Database related prompts
     From https://www.bls.gov/cps/cpsaat11.htm, here are the national demographic percentages for Sales managers.
       Women: 32.9, white: 87.4, Black: 7.8, Asian: 3.1, Latino: 10.2
     Search our employees for Department: Sales, Title: Manager, Page size: 20 and write a paragraph or two that describes how my company's employees compare.
-    Afterwards create a draft email to john.doe@megacorp.com with subject: Sales Manager's demographics. Include in the body of the email a reference to the bls url and their stats plus your paragraphs describing how our employees compare.
-
+    Afterwards create a draft email to john.doe@megacorp.com with subject: Sales Manager's demographics. Include in the body of the email a reference to the bls url and their stats plus your paragraphs describing how our employees compare.The draft email should have one attachment which is the Incoming/Attachments/sample.txt file.    
+    
     How many employees in IT are Asian?
 
     Search for employees which are in the Sales department and are Asian. Sort by age ascending. Give me the first page of size 10 and format the results horizontally.

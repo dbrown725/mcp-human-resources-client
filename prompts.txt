@@ -14,9 +14,10 @@ Playwright related
         Include a blank line between your brief sentence and the prices. Put the individual Agriculture prices on separate lines if possible.
         Close and release the browser when complete.
 
-    Navigate to https://finance.yahoo.com/lookup/, find the input field that contains the "Quote Lookup" placeholder, use it to search for AAPL and show me any relevant information including the current stock price. Close and release the browser when complete.
-
-    Navigate to https://dnr.maryland.gov/publiclands/Pages/wedding-events.aspx. Click on the "WYE ISLAND NRMA" link and return a summary of the "WYE ISLAND NRMA" page's content for display.
+    Navigate to https://finance.yahoo.com/lookup/, find the input field that contains the "Quote Lookup" placeholder, use it to search for AAPL and capture any relevant text information including the current stock price. Show me all related information you find. Do not take a screen shot, I am only interested in text. 
+    Close and release the browser when complete. 
+    
+    Navigate to https://dnr.maryland.gov/publiclands/Pages/outdooreduc.aspx. Click on the "Project Butterfly &​ Bumblebee" link and return a summary of the "Project Butterfly &​ Bumblebee" page's content for display.
 
 
 Brave Search related
@@ -31,11 +32,11 @@ Brave Search related
 
 
 Employee Database related prompts
-    From https://www.bls.gov/cps/cpsaat11.htm, here are the national demographic percentages for Sales managers.
+     From https://www.bls.gov/cps/cpsaat11.htm, here are the national demographic percentages for Sales managers.
       Women: 32.9, white: 87.4, Black: 7.8, Asian: 3.1, Latino: 10.2
     Search our employees for Department: Sales, Title: Manager, Page size: 20 and write a paragraph or two that describes how my company's employees compare.
-    Afterwards create a draft email to john.doe@megacorp.com with subject: Sales Manager's demographics. Include in the body of the email a reference to the bls url and their stats plus your paragraphs describing how our employees compare.The draft email should have one attachment which is the Incoming/Attachments/sample.txt file.    
-    
+    Afterwards create a draft email to john.doe@megacorp.com with subject: Sales Manager's demographics. Include in the body of the email a reference to the bls url and their stats plus your paragraphs describing how our employees compare.
+   
     How many employees in IT are Asian?
 
     Search for employees which are in the Sales department and are Asian. Sort by age ascending. Give me the first page of size 10 and format the results horizontally.
@@ -61,21 +62,40 @@ Addition related
     (Same question Japaneese)
     22 に 6 を足すと何になるか、結果を英語で表示します   
 
-Google Cloud Storage
+Google Cloud Storage. Sample expense receipt images can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images
     
     Upload to the cloud test.txt
 
     Read the GCS file named test.txt
 
-    Read the GCS file named test.txt
-
     List the contents of the GCS bucket expense_receipts/ directory.
 
-    Upload the file Outgoing/intellicare_solutions.jpeg to the expense_receipts Cloud directory.
+    Upload the file Outgoing/20250831_20250913/intellicare_solutions.jpeg to the expense_receipts/20250831_20250913/ Cloud directory.
 
-    Upload all files in the Outgoing directory to the expense_receipts Cloud directory.
+    Upload all files in the Outgoing/20250831_20250913 directory to the expense_receipts/20250831_20250913 Cloud directory.
+    Note: gemini-2.5-pro needed some coaching
 
-    Download from the cloud the file sample.txt to the Incoming directory.
+    Summarize the images in the cloud folder: expense_receipts/20250831_20250913
+    Note: gemini-2.5-pro strugggled
 
-    Download from the cloud the file expense_receipts/techwave_solutions.jpg to the Incoming directory.
+    Generate an expense report for the images in the cloud folder: expense_receipts/20250831_20250913
+
+    Read the cloud file named expense_receipts/20250831_20250913/expense_report.csv
+    Note: gemini-2.5-pro reported back that it read, but didn't display. Had to be told to display.
+
+    Download from the cloud all files in expense_receipts/20250831_20250913 to the Incoming/Attachments folder.
+
+    Download from the cloud the file expense_receipts/20250831_20250913/techwave_solutions.jpg to the Incoming/Attachments directory.
+
+    Write a draft email addressed to hr_karen@megacorp.com, Subject: Jim Smith's Expense Report 20250831_20250913. 
+    Body: 
+    Dear HR Karen, 
+    please find attached my expense report and associated expense receipts for the time period 20250831 thru 20250913. 
+    Include a brief description of the expense receipts and the related expense report. 
+    Sincerely, Jim Smith
+    Attachments: All the files located in the Incoming/Attachments directory.
+    Note: occasionaly fails on resolving the proper attachment full paths. 
+
+
+
 

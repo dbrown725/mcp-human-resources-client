@@ -20,14 +20,19 @@ logfire.configure()
 
 try:
     # agent = Agent('groq:deepseek-r1-distill-llama-70b',
-    agent = Agent('groq:moonshotai/kimi-k2-instruct', 
-    # agent = Agent('google-gla:gemini-2.5-flash-preview-05-20',    
+    agent = Agent('groq:moonshotai/kimi-k2-instruct', #Best!!!
+    # agent = Agent('groq:moonshotai/kimi-k2-instruct-0905', # worse than kimi-k2-instruct (deprecated)
+    # agent = Agent('groq:groq/compound', # doesn't support tool calling
+    # agent = Agent('groq:meta-llama/llama-4-maverick-17b-128e-instruct',
+    # agent = Agent('google-gla:gemini-2.5-flash',  # worse than kimi-k2-instruct (deprecated)
+    # agent = Agent('google-gla:gemini-2.5-pro',    # worse than kimi-k2-instruct (deprecated) 
     # agent = Agent('google-gla:gemini-2.5-flash-preview-06-17',
     # agent = Agent('google-gla:gemini-2.5-flash-lite-preview-06-17',            
     # agent = Agent('google-gla:gemini-2.0-flash', 
                     instrument=True,
                     retries=3,
-                    tools=[tools.add, tools.save_draft_email_content, tools.get_geo_location, tools.upload_file_to_cloud, tools.download_file_from_cloud],
+                    tools=[tools.add, tools.save_draft_email_content, tools.get_geo_location, tools.upload_file_to_cloud, 
+                           tools.download_file_from_cloud, tools.summarize_images_in_folder, tools.create_expense_report],
                     system_prompt=(
                         ' You are an assistant who answers all questions. '
                     ),

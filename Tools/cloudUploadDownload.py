@@ -4,6 +4,7 @@ import os
 from io import BytesIO
 import logging
 from dotenv import load_dotenv
+import json
 
 load_dotenv() 
 
@@ -86,3 +87,40 @@ def download_file_from_gcs_cloud(file_name: str, target_directory: str) -> str:
 
     logger.info(f"File saved to {local_path}")
     return f"File '{file_name}' has been saved to '{full_target_directory}'"
+
+def summarize_images_in_cloud_folder(folder_name: str) -> dict:
+    """
+    Calls the REST endpoint to summarize all images in the specified cloud folder.
+
+    Args:
+        folder_name (str): The cloud folder to summarize images from.
+
+    Returns:
+        dict: The summary data returned by the endpoint.
+    """
+    url = f"http://localhost:8081/summarize-images-in-folder?folder={folder_name}"
+    logger.info(f"Requesting image summary for folder: {folder_name} from {url}")
+    response = requests.get(url)
+    response.raise_for_status()
+    summary = response.json()
+    logger.info(f"Summary received: {summary}")
+    return summary
+
+def generate_expense_report(folder_name: str) -> dict:
+    """
+    Calls the REST endpoint to generate an expense report for all receipts in the specified cloud folder.
+
+    Args:
+        folder_name (str): The cloud folder containing expense receipts.
+
+    Returns:
+        dict: The expense report data returned by the endpoint.
+    """
+    url = f"http://localhost:8081/generate-expense-report?folder={folder_name}"
+    logger.info(f"Requesting expense report for folder: {folder_name} from {url}")
+    response = requests.get(url)
+    response.raise_for_status()
+    # report = response.json()
+    report = response.text
+    logger.info(f"Expense report received: {report}")
+    return report

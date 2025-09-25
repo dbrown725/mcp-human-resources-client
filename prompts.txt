@@ -96,6 +96,8 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
     Attachments: All the files located in the Incoming/Attachments directory.
     Note: occasionaly fails on resolving the proper attachment full paths. 
 
+    Generate an image of the Marx Brothers as 3D Figurines. Name the file marxBrothers.
+
 
 
 

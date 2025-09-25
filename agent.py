@@ -4,6 +4,10 @@ from dotenv import load_dotenv
 import logging
 import servers as servers
 import Tools.tools as tools
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Configure logging
 logging.basicConfig(
@@ -44,8 +48,9 @@ except Exception as e:
 
 async def main():
     async with agent.run_mcp_servers():
-        initial_prompt = 'Introduce yourself and list all tools/functions separated into a category-based layout with each category title having a category speific icon'
-        
+        initial_prompt = 'Introduce yourself and list all tools/functions separated into a category-based layout with each category title having a category speific icon' \
+        'Note that all prompts which reference a local file or directory should be assumed relative to the allowed directory: ' + os.getenv('LOCAL_FILE_STORAGE')
+
         logger.info("Before agent.run()")
         result = await agent.run(initial_prompt)
         logger.info(f"In Main result: {result.output}")

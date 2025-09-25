@@ -17,7 +17,10 @@ def save_draft_email_content(to_email: str, subject: str, body: str, attachment_
     """Save a draft email by providing email recipient address, email subject, body of the email and a list of attachments.
     ****IMPORTANT**** - The allowed directory is assumed to be known by this tool, do not prepend the allowed directory to what the user
     entered as a filename or directory/filename. This tool will prepend the allowed directory to the filename or directory/filename that were supplied by the user.
-    The items in attachment_paths should be actual names of files with extensions and not folder names."""
+    If the user's prompt references an attachment, for instance "Attachments: All the files located in the Incoming/Attachments directory"
+    then each individual attachment path should be included in the attachment_paths list, for instance "Incoming/Attachments/sample.txt", "Incoming/Attachments/image1.jpeg", "Incoming/Attachments/document.pdf"
+    """
+    
     handle_save_draft_request(to_email, subject, body, attachment_paths)
     return f"Draft email saved for {to_email} with subject: {subject}"
 

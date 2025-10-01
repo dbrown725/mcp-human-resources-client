@@ -38,7 +38,7 @@ npm i @modelcontextprotocol/server-filesystem
 uv pip install -r requirements.txt
 ```
 <b> Steps 6-8 below can be skipped by creating an .env file at the base of the project and including your appropriate values.<br>
-GROQ_API_KEY=...<br>
+GROQ_API_KEY=... or GEMINI_API_KEY=... or OPENROUTER_API_KEY=...<br>
 GMAIL_EMAIL_ADDRESS=...<br>
 GMAIL_EMAIL_APP_PASSWORD=...<br>
 LOCAL_FILE_STORAGE=...
@@ -49,6 +49,8 @@ LOCAL_FILE_STORAGE=...
 export GROQ_API_KEY=<YOUR_GROQ_API_KEY>
 or
 export GEMINI_API_KEY=<YOUR_GEMINI_API_KEY>
+or
+export OPENROUTER_API_KEY=<YOUR_OPENROUTER_API_KEY>
 ```
 
 7. If using GMAIL<br>

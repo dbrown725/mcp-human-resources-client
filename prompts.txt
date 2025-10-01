@@ -73,7 +73,7 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
     Upload the file Outgoing/20250831_20250913/intellicare_solutions.jpeg to the expense_receipts/20250831_20250913/ Cloud directory.
 
     Upload all files in the Outgoing/20250831_20250913 directory to the expense_receipts/20250831_20250913 Cloud directory.
-    Note: gemini-2.5-pro needed some coaching
+    Note: gemini-2.5-pro and x-ai/grok-4-fast needed some coaching, for instance before ask "display all files and folders in the allowed directory"
 
     Summarize the images in the cloud folder: expense_receipts/20250831_20250913
     Note: gemini-2.5-pro strugggled
@@ -87,14 +87,14 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
 
     Download from the cloud the file expense_receipts/20250831_20250913/techwave_solutions.jpg to the Incoming/Attachments directory.
 
-    Write a draft email addressed to hr_karen@megacorp.com, Subject: Jim Smith's Expense Report 20250831_20250913. 
+    Write a draft email addressed to karen@hr.megacorp.com, Subject: Jim Smith's Expense Report 20250831_20250913. 
     Body: 
-    Dear HR Karen, 
+    Dear Karen, 
     please find attached my expense report and associated expense receipts for the time period 20250831 thru 20250913. 
     Include a brief description of the expense receipts and the related expense report. 
     Sincerely, Jim Smith
-    Attachments: All the files located in the Incoming/Attachments directory.
-    Note: occasionaly fails on resolving the proper attachment full paths. 
+    Attachments: All the files located in the local Incoming/Attachments directory.
+    Note: occasionally fails on resolving the proper attachment full paths. 
 
     Generate an image of the Marx Brothers as 3D Figurines. Name the file marxBrothers.
 

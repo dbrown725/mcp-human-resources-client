@@ -1,4 +1,6 @@
 from pydantic_ai import Agent
+from pydantic_ai.models.openai import OpenAIModel
+from pydantic_ai.providers.openrouter import OpenRouterProvider
 import logfire
 from dotenv import load_dotenv
 import logging
@@ -23,8 +25,15 @@ load_dotenv()
 logfire.configure()
 
 try:
+    model = OpenAIModel(
+        'x-ai/grok-4-fast',
+        provider=OpenRouterProvider(api_key=os.getenv('OPENROUTER_API_KEY')),
+    )
+    
+    agent = Agent(model,
+                  
     # agent = Agent('groq:deepseek-r1-distill-llama-70b',
-    agent = Agent('groq:moonshotai/kimi-k2-instruct', #Best!!!
+    # agent = Agent('groq:moonshotai/kimi-k2-instruct', #Best!!! (deprecated)
     # agent = Agent('groq:moonshotai/kimi-k2-instruct-0905', # worse than kimi-k2-instruct (deprecated)
     # agent = Agent('groq:groq/compound', # doesn't support tool calling
     # agent = Agent('groq:meta-llama/llama-4-maverick-17b-128e-instruct',

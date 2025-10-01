@@ -20,7 +20,7 @@ def save_draft_email_content(to_email: str, subject: str, body: str, attachment_
     If the user's prompt references an attachment, for instance "Attachments: All the files located in the Incoming/Attachments directory"
     then each individual attachment path should be included in the attachment_paths list, for instance "Incoming/Attachments/sample.txt", "Incoming/Attachments/image1.jpeg", "Incoming/Attachments/document.pdf"
     """
-    
+
     handle_save_draft_request(to_email, subject, body, attachment_paths)
     return f"Draft email saved for {to_email} with subject: {subject}"
 
@@ -33,13 +33,13 @@ def upload_file_to_cloud(input_file_path: str, destination_path: str) -> None:
     Upload a file to the specified destination path. If the user doesn't specify a destination path, leave destination_path blank.
     It should be assumed the file is located in the allowed directory you have access to.
     Examples:
-        If the user says "Upload the file Outgoing/intellicare_solutions.jpeg to the expense_receipts GCS directory."
-            input_file_path should be "Outgoing/intellicare_solutions.jpeg"
-            destination_path should be "expense_receipts"
-        If the user says "Upload all files in the Outgoing directory to the expense_receipts" then this function should be called multiple times, once for each file in the Outgoing directory.
-            input_file_path should be just the word "Outgoing" and the filename, for instance "Outgoing/intellicare_solutions.jpeg". 
+        If the user says "Upload the file Outgoing/20250831_20250913/intellicare_solutions.jpeg to the expense_receipts/20250831_20250913 GCS directory."
+            input_file_path should be "Outgoing/20250831_20250913/intellicare_solutions.jpeg"
+            destination_path should be "expense_receipts/20250831_20250913"
+        If the user says "Upload all files in the Outgoing/20250831_20250913 directory to the expense_receipts/20250831_20250913" then this function should be called multiple times, once for each file in the Outgoing directory.
+            input_file_path should be just the word "Outgoing/20250831_20250913" and the filename, for instance "Outgoing/20250831_20250913/intellicare_solutions.jpeg". 
                 ****IMPORTANT**** - The allowed directory is assumed to be known by the tool, do not prepend the allowed directory to the file name or path/file name which was supplied by the user.
-            destination_path should be "expense_receipts"
+            destination_path should be "expense_receipts/20250831_20250913"
         If the user says "Upload the file test.jpg to the cloud" and does not specify a destination path then:
             input_file_path should be "test.jpg"
             destination_path should be "" (an empty string)

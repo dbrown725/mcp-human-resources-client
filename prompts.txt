@@ -101,6 +101,8 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
 
     Generate a new image named catCircus. The image should depict a cat in a circus balancing on a ball. Use the original_images/cat-close-up-of-side-profile.webp image as a guide.
 
+    Generate a new image named employee_#6000. The image should depict an employee picture badge with red trim. The employee number 6000 should be included. The companies name Mega Corp should also be on the badge. The employee's name should be Randy Delacroix. Use the original_images/employee_image.jpg image as the employee's picture for the badge.
+
 
 
 

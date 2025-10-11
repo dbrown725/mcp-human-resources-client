@@ -63,6 +63,7 @@ Addition related
     22 に 6 を足すと何になるか、結果を英語で表示します   
 
 Google Cloud Storage. Sample expense receipt images can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images
+        Note: .heif and .heic stopped working for the backend app's gemini-2.5-flash model
     
     Upload to the cloud test.txt
 
@@ -92,14 +93,14 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
     please find attached my expense report and associated expense receipts for the time period 20250831 thru 20250913. 
     Include a brief description of the expense receipts and the related expense report. 
     Sincerely, Jim Smith
-    Attachments: All the files located in the local Incoming/Attachments directory.
+    Attachments: Use all files located in the ALLOWED directory's subdirectory - Incoming/Attachments.
     Note: occasionally fails on resolving the proper attachment full paths. 
 
     Generate an image of the Marx Brothers as 3D Figurines. Name the file marxBrothers.
 
     Generate an image named bullRoastRunner. The image should be a bull roast taking place in the Blade Runner universe.
 
-    Generate a new image named catCircus. The image should depict a cat in a circus balancing on a ball. Use the original_images/cat-close-up-of-side-profile.webp image as a guide.
+    Generate a new image named catCircus. The image should depict a cat in a circus balancing on a ball. Use the original_images/cat-close-up-of-side-profile.webp image as the original input image name.
 
     Generate a new image named employee_#6000. The image should depict an employee picture badge with red trim. The employee number 6000 should be included. The companies name Mega Corp should also be on the badge. The employee's name should be Randy Delacroix. Use the original_images/employee_image.jpg image as the employee's picture for the badge.
 

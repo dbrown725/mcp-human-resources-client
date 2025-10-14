@@ -30,26 +30,16 @@ try:
         provider=OpenRouterProvider(api_key=os.getenv('OPENROUTER_API_KEY')),
     )
     
-    agent = Agent(model,
-                  
-    # agent = Agent('groq:deepseek-r1-distill-llama-70b',
-    # agent = Agent('groq:moonshotai/kimi-k2-instruct', #Best!!! (deprecated)
-    # agent = Agent('groq:moonshotai/kimi-k2-instruct-0905', # worse than kimi-k2-instruct (deprecated)
-    # agent = Agent('groq:groq/compound', # doesn't support tool calling
-    # agent = Agent('groq:meta-llama/llama-4-maverick-17b-128e-instruct',
-    # agent = Agent('google-gla:gemini-2.5-flash',  # worse than kimi-k2-instruct (deprecated)
-    # agent = Agent('google-gla:gemini-2.5-pro',    # worse than kimi-k2-instruct (deprecated) 
-    # agent = Agent('google-gla:gemini-2.5-flash-preview-06-17',
-    # agent = Agent('google-gla:gemini-2.5-flash-lite-preview-06-17',            
-    # agent = Agent('google-gla:gemini-2.0-flash', 
-                    instrument=True,
-                    retries=3,
-                    tools=[tools.add, tools.save_draft_email_content, tools.get_geo_location, tools.upload_file_to_cloud, 
-                           tools.download_file_from_cloud, tools.summarize_images_in_folder, tools.create_expense_report],
-                    system_prompt=(
-                        ' You are an assistant who answers all questions. '
-                    ),
-                    mcp_servers=[servers.playwright_mcp_server, servers.mcp_human_resources_server, servers.filesystem_mcp_server])
+    agent = Agent(model, 
+        instrument=True,
+        retries=3,
+        tools=[tools.add, tools.save_draft_email_content, tools.get_geo_location, tools.upload_file_to_cloud, 
+                tools.download_file_from_cloud, tools.summarize_images_in_folder, tools.create_expense_report,
+                tools.create_employee_badge],
+        system_prompt=(
+            ' You are an assistant who answers all questions. '
+        ),
+        mcp_servers=[servers.playwright_mcp_server, servers.mcp_human_resources_server, servers.filesystem_mcp_server])
 
 except Exception as e:
     logger.error(f"Failed to create agent: {e}")

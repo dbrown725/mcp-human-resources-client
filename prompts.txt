@@ -102,5 +102,4 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
 
     Generate a new image named catCircus. The image should depict a cat in a circus balancing on a ball. Use the original_images/cat-close-up-of-side-profile.webp image as the original input image name.
 
-    Using the employee badge template CGS image original_images/employeeBadgeTemplate.png as the base, replace the placeholder person image with the photo from CGS original_images/randy_broussard.jpg. Ensure the person's face and both hands are fully visible and properly positioned on the badge. Important, add the employee name 'Randy Broussard' and employee number '6000' in the appropriate text fields on the badge template. Maintain the original style and layout of the badge. The output file should be named randy_broussard_6000_badge.
-    Note: Needs a better design, too much variability coming from the front-end LLM, might be better as a backend end point that has a canned prompt with placeholders for the input and output names.
+    Generate a badge for employee Randy Broussard with employee number 6000. His image is original_images/randy_broussard.jpg

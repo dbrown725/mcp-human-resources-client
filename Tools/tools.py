@@ -5,6 +5,7 @@ from Tools.cloudUploadDownload import download_file_from_gcs_cloud
 from Tools.cloudUploadDownload import summarize_images_in_cloud_folder
 from Tools.cloudUploadDownload import generate_expense_report
 from Tools.generateEmployeeBadge import generate_employee_badge
+from Tools.queryEmployeeCodeOfConflict import query_advised
 
 from dotenv import load_dotenv
 
@@ -79,3 +80,7 @@ def create_expense_report(folder_path: str) -> str:
 def create_employee_badge(first_name: str, last_name: str, employee_number: str, existing_employee_image_name: str) -> str:
     """Generate an employee badge using first name, last name, employee number, and existing employee image name."""
     return generate_employee_badge(first_name, last_name, employee_number, existing_employee_image_name)
+
+def query_employee_code_of_conflict(question: str) -> str:
+    """Query the employee code of conflict policies endpoint with the provided question."""
+    return query_advised(question)

@@ -103,3 +103,6 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
     Generate a new image named catCircus. The image should depict a cat in a circus balancing on a ball. Use the original_images/cat-close-up-of-side-profile.webp image as the original input image name.
 
     Generate a badge for employee Randy Broussard with employee number 6000. His image is original_images/randy_broussard.jpg
+
+Employee code of conflict policies (implemented with ElasticSearch RAG)
+    Give me a summary of what the company believes are "Personal Conflicts of Interest"    

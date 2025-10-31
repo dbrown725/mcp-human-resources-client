@@ -106,3 +106,6 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
 
 Employee code of conflict policies (implemented with ElasticSearch RAG)
     Give me a summary of what the company believes are "Personal Conflicts of Interest"    
+
+Weather Forecast and Alerts
+    What is the weather like in Alaska?    

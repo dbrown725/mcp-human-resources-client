@@ -12,6 +12,7 @@ Playwright related
         Step 3) Save a draft email: email recipient address = john.doe@megacorp.com, email subject = "Agriculture Prices" and 
         the body of the email = Your brief sentence from step 2 and an actual listing of the Agriculture prices. 
         Include a blank line between your brief sentence and the prices. Put the individual Agriculture prices on separate lines if possible.
+        At the bottom include: "Best wishes," followed by a new line then "Jim Smith"
         Close and release the browser when complete.
 
     Navigate to https://finance.yahoo.com/lookup/, find the input field that contains the "Quote Lookup" placeholder, use it to search for AAPL and capture any relevant text information including the current stock price. Show me all related information you find. Do not take a screen shot, I am only interested in text. 
@@ -39,7 +40,7 @@ Employee Database related prompts
    
     How many employees in IT are Asian?
 
-    Search for employees which are in the Sales department and are Asian. Sort by age ascending. Give me the first page of size 10 and format the results horizontally.
+    Search for employees which are in the Sales department and are Asian. Sort by age ascending. Show me the page number 4 of size 10 and format the results horizontally.
     Note: You can page through the results in your next prompts: "Page 2" then "Page 3" etc..
 
 

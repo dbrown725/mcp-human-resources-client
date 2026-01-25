@@ -189,5 +189,15 @@ function displayOutput(output) {
   outputDiv.scrollTop = outputDiv.scrollHeight; // Scroll to the bottom
 }
 
+eel.expose(sessionExpired);
+function sessionExpired() {
+    // Hide all <button> elements
+    document.querySelectorAll('button').forEach(btn => btn.style.display = 'none');
+    // Hide all elements with the class .input-container
+    document.querySelectorAll('.input-container').forEach(el => el.style.display = 'none');
+    alert("Session has expired. To continue, please restart the python application main.py.");
+    console.log("Session expired called from Python");
+}
+
 // Start the Python subprocess when the page loads
 eel.start_process();

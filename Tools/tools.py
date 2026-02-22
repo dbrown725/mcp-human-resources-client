@@ -6,6 +6,7 @@ from Tools.cloudUploadDownload import summarize_images_in_cloud_folder
 from Tools.cloudUploadDownload import generate_expense_report
 from Tools.generateEmployeeBadge import generate_employee_badge
 from Tools.queryEmployeeCodeOfConflict import query_advised
+from Tools.saveDraftEmail import save_draft_email
 
 from dotenv import load_dotenv
 
@@ -15,7 +16,7 @@ def add(a: int, b: int) -> int:
     """Adds two numbers and returns the sum."""
     return a + b
 
-def save_draft_email_content(to_email: str, subject: str, body: str, attachment_paths: list = []) -> str:
+def save_draft_email_local_files(to_email: str, subject: str, body: str, attachment_paths: list = []) -> str:
     """Save a draft email by providing email recipient address, email subject, body of the email and a list of attachments.
     ****IMPORTANT**** - The allowed directory is assumed to be known by this tool, do not prepend the allowed directory to what the user
     entered as a filename or directory/filename. This tool will prepend the allowed directory to the filename or directory/filename that were supplied by the user.
@@ -25,6 +26,28 @@ def save_draft_email_content(to_email: str, subject: str, body: str, attachment_
 
     handle_save_draft_request(to_email, subject, body, attachment_paths)
     return f"Draft email saved for {to_email} with subject: {subject}"
+
+def save_draft_email_new(
+    to_email: str,
+    subject: str,
+    body: str,
+    attachment_paths: list = None,
+    storage_attachments: list = None,
+    in_reply_to_message_id: str = None
+) -> str:
+    """
+    Save a draft email via the Java endpoint /save-draft-email.
+    attachment_paths should reflect exactly what the user entered; this tool will prepend LOCAL_FILE_STORAGE.
+    storage_attachments should include any server-side attachment references.
+    """
+    return save_draft_email(
+        to_email=to_email,
+        subject=subject,
+        body=body,
+        attachment_paths=attachment_paths,
+        storage_attachments=storage_attachments,
+        in_reply_to_message_id=in_reply_to_message_id,
+    )
 
 def get_geo_location(city: str, state: str) -> str:
     """Get geolocation coordinates based on city and state"""

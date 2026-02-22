@@ -26,16 +26,17 @@ logfire.configure()
 
 try:
     model = OpenAIModel(
-        'x-ai/grok-4-fast',
+        'moonshotai/kimi-k2.5', #  x-ai/grok-4-fast moonshotai/kimi-k2.5
         provider=OpenRouterProvider(api_key=os.getenv('OPENROUTER_API_KEY')),
     )
     
     agent = Agent(model, 
         instrument=True,
         retries=3,
-        tools=[tools.add, tools.save_draft_email_content, tools.get_geo_location, tools.upload_file_to_cloud, 
-                tools.download_file_from_cloud, tools.summarize_images_in_folder, tools.create_expense_report,
-                tools.create_employee_badge, tools.query_employee_code_of_conflict],
+        tools=[tools.add, tools.get_geo_location, tools.upload_file_to_cloud, 
+            tools.download_file_from_cloud, tools.summarize_images_in_folder, tools.create_expense_report,
+            tools.create_employee_badge, tools.query_employee_code_of_conflict,
+            tools.save_draft_email_new], #, tools.save_draft_email_local_files
         system_prompt=(
             ' You are an assistant who answers all questions. '
         ),

@@ -1,6 +1,8 @@
 from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openrouter import OpenRouterProvider
+from pydantic_ai.models.google import GoogleModel
+from pydantic_ai.providers.google import GoogleProvider
 import logfire
 from dotenv import load_dotenv
 import logging
@@ -25,9 +27,14 @@ load_dotenv()
 logfire.configure()
 
 try:
-    model = OpenAIModel(
-        'moonshotai/kimi-k2.5', #  x-ai/grok-4-fast moonshotai/kimi-k2.5
-        provider=OpenRouterProvider(api_key=os.getenv('OPENROUTER_API_KEY')),
+    # model = OpenAIModel(
+    #     'moonshotai/kimi-k2.5', #  x-ai/grok-4-fast moonshotai/kimi-k2.5
+    #     provider=OpenRouterProvider(api_key=os.getenv('OPENROUTER_API_KEY')),
+    # )
+
+    model = GoogleModel(
+        'gemini-3-flash-preview', #  gemini-3-pro-preview gemini-2.5-flash 
+        provider=GoogleProvider(api_key=os.getenv('GEMINI_API_KEY'))
     )
     
     agent = Agent(model, 

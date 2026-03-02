@@ -44,11 +44,13 @@ Employee Database related prompts
     Note: You can page through the results in your next prompts: "Page 2" then "Page 3" etc..
 
 
-    I need employee head count for each department. 
-    Run separate count queries for each of the following departments: Accounting, Engineering, Finance, Human Resources, IT, Marketing, Sales.
-    For each department I want to know how many males we have and how many females we have. 
-    For each department I want to know how many Asian, Black, Caucasian, Latino we have.
-    Display for each Department, Total count, Male count, Female count, Asian count, Black count, Caucasian count, Latino count
+    Complete the following steps:
+        Step 1) List the ALLOWED directory. 
+        Step 2) I need employee head count for each department. Run separate count queries for each of the following departments: Accounting, Engineering, Finance, Human Resources, IT, Marketing, Sales. For each department I want to know how many males we have and how many females we have. For each department I want to know how many Asian, Black, Caucasian, Latino we have. 
+        Step 3) In .csv format display for each Department, Total count, Male count, Female count, Asian count, Black count, Caucasian count, Latino count. 
+        Step 4) create a file named mega_corp_employee_demographics.csv in the ALLOWED directory 
+        Step 5) save the .csv data to the new file that was just created named: mega_corp_employee_demographics.csv. 
+        Step 6) upload the file to GCS
 
     Create a new employee named Randy Broussard.
     Update Randy Broussard with a manager id equal to 5520

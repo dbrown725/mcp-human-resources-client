@@ -1,9 +1,15 @@
 Elastic Search related
     Show me all custom indices
+    
+    Show me mappings for the hr-policy-rag-index index
 
-    Show me mappings for the employee_code_of_conduct_policies index
+    Can I ask coworkers to donate to a personal fundraiser during work hours, or does Mega Corp have a solicitation policy that limits this?
 
-    Search all the 'content' field in the employee_code_of_conduct_policies index for the term "passwords", include the source_url field in the results. Display all the results.
+    Can I ask coworkers to donate to a personal fundraiser during work hours, or does Mega Corp have a solicitation policy that limits this?
+
+    What is the policy if two coworkers start dating? Are there disclosure requirements, especially if one person could influence the other's assignments?
+
+    I drive a company vehicle between sites. What is the official rule for mobile phone calls, texting, or navigation use while driving?
 
 Playwright related
     All one prompt
@@ -105,10 +111,7 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
 
     Generate a new image named catCircus. The image should depict a cat in a circus balancing on a ball. Use the original_images/cat-close-up-of-side-profile.webp image as the original input image name.
 
-    Generate a badge for employee Randy Broussard with employee number 6000. His image is original_images/randy_broussard.jpg
-
-Employee code of conflict policies (implemented with ElasticSearch RAG)
-    Give me a summary of what the company believes are "Personal Conflicts of Interest"    
+    Generate a badge for employee Randy Broussard with employee number 6000. His image is original_images/randy_broussard.jpg   
 
 Weather Forecast and Alerts
     What is the weather like in Alaska?    

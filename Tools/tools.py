@@ -5,7 +5,7 @@ from Tools.cloudUploadDownload import download_file_from_gcs_cloud
 from Tools.cloudUploadDownload import summarize_images_in_cloud_folder
 from Tools.cloudUploadDownload import generate_expense_report
 from Tools.generateEmployeeBadge import generate_employee_badge
-from Tools.queryEmployeeCodeOfConflict import query_advised
+from Tools.queryCompanyPolicies import query_company_policies
 from Tools.saveDraftEmail import save_draft_email
 
 from dotenv import load_dotenv
@@ -104,6 +104,24 @@ def create_employee_badge(first_name: str, last_name: str, employee_number: str,
     """Generate an employee badge using first name, last name, employee number, and existing employee image name."""
     return generate_employee_badge(first_name, last_name, employee_number, existing_employee_image_name)
 
-def query_employee_code_of_conflict(question: str) -> str:
-    """Query the employee code of conflict policies endpoint with the provided question."""
-    return query_advised(question)
+def query_company_policies_tool(
+    question: str,
+    topK: int = None,
+    similarityThreshold: float = None,
+) -> str:
+    """
+    Query company policies using semantic similarity search.
+
+    Args:
+        question: The HR policy question to search for.
+        topK: The maximum number of similar documents to retrieve. If null or less than 1,
+            defaults to the server-side default top-k value. Controls the breadth of results.
+        similarityThreshold: The minimum similarity score (0.0 to 1.0) for matching
+            documents. If null, defaults to the server-side similarity threshold.
+            Documents with lower similarity scores are filtered out.
+    """
+    return query_company_policies(
+        question=question,
+        topK=topK,
+        similarityThreshold=similarityThreshold,
+    )

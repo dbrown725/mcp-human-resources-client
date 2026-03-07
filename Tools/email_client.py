@@ -8,17 +8,13 @@ import email
 import os
 import datetime
 import logging
+from logging_config import configure_app_logging
 
 from dotenv import load_dotenv
 
 load_dotenv() 
 
-# Configure logging
-logging.basicConfig(
-    filename='/var/log/mcp-human-resources-client/mcp-human-resources-client.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+configure_app_logging()
 
 logger = logging.getLogger("mcp_human_resources_client_email_client")
 

@@ -4,15 +4,11 @@ from typing import List, Optional
 
 import requests
 from dotenv import load_dotenv
+from logging_config import configure_app_logging
 
 load_dotenv()
 
-# Configure logging
-logging.basicConfig(
-    filename='/var/log/mcp-human-resources-client/mcp-human-resources-client.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+configure_app_logging()
 
 logger = logging.getLogger("saveDraftEmail")
 
@@ -70,7 +66,11 @@ def save_draft_email(
 
         response = requests.post(base_url, data=data, files=files, timeout=30)
         response.raise_for_status()
-        logger.info(f"save_draft_email_via_endpoint response: {response.text}")
+        logger.info(
+            "save_draft_email_via_endpoint response received (status=%d, response_length=%d)",
+            response.status_code,
+            len(response.text or ""),
+        )
         return response.text
     finally:
         for file_handle in opened_files:

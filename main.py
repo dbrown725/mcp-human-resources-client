@@ -6,13 +6,9 @@ import threading
 import logging
 import re
 import time
+from logging_config import configure_app_logging
 
-# Configure logging
-logging.basicConfig(
-    filename='/var/log/mcp-human-resources-client/mcp-human-resources-client.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+configure_app_logging()
 
 logger = logging.getLogger(__name__)
 

@@ -9,18 +9,21 @@ import logging
 import servers as servers
 import Tools.tools as tools
 import os
+from logging_config import configure_app_logging
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Configure logging
-logging.basicConfig(
-    filename='/var/log/mcp-human-resources-client/mcp-human-resources-client.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+configure_app_logging()
 
 logger = logging.getLogger("mcp_human_resources_client_agent")
+
+
+def _log_preview(text: str, max_chars: int = 120) -> str:
+    if text is None:
+        return ""
+    sanitized = text.replace("\n", "\\n").replace("\r", "")
+    return sanitized[:max_chars]
 
 load_dotenv()
 #logfire.configure(token=os.getenv('LOGFIRE_TOKEN'))
@@ -60,18 +63,27 @@ async def main():
 
         logger.info("Before agent.run()")
         result = await agent.run(initial_prompt)
-        logger.info(f"In Main result: {result.output}")
+        output_text = str(result.output)
+        logger.info(
+            "Initial run completed (output_length=%d, preview='%s')",
+            len(output_text),
+            _log_preview(output_text),
+        )
         
         while True:
             try:
                 print(f"\n {result.output}")
                 user_input = input("\n> ")
-                logger.info(f"User input: {user_input}")
+                logger.info(
+                    "User input received (length=%d, preview='%s')",
+                    len(user_input),
+                    _log_preview(user_input),
+                )
                 user_input = user_input.strip()
                 if(user_input == "NEW_CHAT"):
                     result = await agent.run("Display: 'Message history cleared, a new chat session has now started.'",message_history="")
                 elif(user_input == "KEEP_ALIVE"):
-                    logger.info(f"In KEEP_ALIVE, User input: {user_input}")
+                    logger.info("KEEP_ALIVE command received")
                     result = await agent.run("Execute Keep Alive command one time only, do not repeat this command again.",)
                 else:
                     result = await agent.run(user_input, 

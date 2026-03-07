@@ -5,15 +5,11 @@ from io import BytesIO
 import logging
 from dotenv import load_dotenv
 import json
+from logging_config import configure_app_logging
 
 load_dotenv() 
 
-# Configure logging
-logging.basicConfig(
-    filename='/var/log/mcp-human-resources-client/mcp-human-resources-client.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+configure_app_logging()
 
 logger = logging.getLogger("cloudUploadDownload")
 
@@ -49,7 +45,11 @@ def upload_file_to_gcs_cloud(file_path: str, target_directory: str) -> str:
         response = requests.post(url, files=files)
 
     response.raise_for_status()
-    logger.info(f"response: {response.text}")
+    logger.info(
+        "Upload response received (status=%d, response_length=%d)",
+        response.status_code,
+        len(response.text or ""),
+    )
 
     return response.text
 
@@ -103,7 +103,12 @@ def summarize_images_in_cloud_folder(folder_name: str) -> dict:
     response = requests.get(url)
     response.raise_for_status()
     summary = response.json()
-    logger.info(f"Summary received: {summary}")
+    if isinstance(summary, dict):
+        logger.info("Summary received (keys=%s)", list(summary.keys()))
+    elif isinstance(summary, list):
+        logger.info("Summary received (item_count=%d)", len(summary))
+    else:
+        logger.info("Summary received (type=%s)", type(summary).__name__)
     return summary
 
 def generate_expense_report(folder_name: str) -> dict:
@@ -122,5 +127,9 @@ def generate_expense_report(folder_name: str) -> dict:
     response.raise_for_status()
     # report = response.json()
     report = response.text
-    logger.info(f"Expense report received: {report}")
+    logger.info(
+        "Expense report received (status=%d, report_length=%d)",
+        response.status_code,
+        len(report or ""),
+    )
     return report

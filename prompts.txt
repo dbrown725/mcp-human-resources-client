@@ -61,6 +61,14 @@ Employee Database related prompts
     Create a new employee named Randy Broussard.
     Update Randy Broussard with a manager id equal to 5520
 
+    Show me the record of employee 5615, include all fields from the employee's address.
+
+    Find all employees with a hire date 2017-09-11
+
+    Find employees with termination date 2018-09-29
+
+    Show me employee 5386. Include all fields for the employee and all fields for the employee's manager.
+
 Geo lookup related
     Show me the longitude and latitude of Boston, Massachusetts.
 

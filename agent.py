@@ -88,10 +88,13 @@ async def main():
                 else:
                     result = await agent.run(user_input, 
                                             message_history=result.new_messages())
+            except (EOFError, KeyboardInterrupt):
+                logger.info("Input stream closed or interrupted, exiting.")
+                break
             except Exception as e:
                 logger.error(f"Failed while agent.run: {e}")
                 print(f"\n Error: Failed while agent.run: {str(e)[:150]}...")
-                # raise          
+                break          
     
 
 if __name__ == "__main__":

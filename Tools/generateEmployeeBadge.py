@@ -1,11 +1,17 @@
+import os
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BACKEND_SERVER_URL = os.getenv("BACKEND_SERVER_URL", "http://localhost:8081")
 
 def generate_employee_badge(
     first_name: str,
     last_name: str,
     employee_number: str,
     existing_employee_image_name: str,
-    base_url: str = "http://localhost:8081/generate-employee-badge"
+    base_url: str = f"{BACKEND_SERVER_URL}/generate-employee-badge"
 ) -> bytes:
     params = {
         "firstName": first_name,

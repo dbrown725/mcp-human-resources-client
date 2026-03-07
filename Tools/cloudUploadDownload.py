@@ -13,9 +13,11 @@ configure_app_logging()
 
 logger = logging.getLogger("cloudUploadDownload")
 
+BACKEND_SERVER_URL = os.getenv("BACKEND_SERVER_URL", "http://localhost:8081")
+
 def upload_file_to_gcs_cloud(file_path: str, target_directory: str) -> str:
     """
-    Uploads a file to the Spring Boot endpoint at http://localhost:8081/upload,
+    Uploads a file to the Spring Boot endpoint at {BACKEND_SERVER_URL}/upload,
     prepending the target_directory to the filename.
 
     Args:
@@ -25,7 +27,7 @@ def upload_file_to_gcs_cloud(file_path: str, target_directory: str) -> str:
     Returns:
         str: The response text returned by the Spring Boot controller.
     """
-    url = "http://localhost:8081/upload"
+    url = f"{BACKEND_SERVER_URL}/upload"
     filename = os.path.basename(file_path)
     # Added to ensure no trailing slash was added by the user or LLM
     target_directory = target_directory.rstrip("/")
@@ -55,7 +57,7 @@ def upload_file_to_gcs_cloud(file_path: str, target_directory: str) -> str:
 
 def download_file_from_gcs_cloud(file_name: str, target_directory: str) -> str:
     """
-    Downloads a file from the Spring Boot endpoint at http://localhost:8081/download-file/{fileName}
+    Downloads a file from the Spring Boot endpoint at {BACKEND_SERVER_URL}/download-file/{fileName}
     and saves it to the specified local target directory.
 
     Args:
@@ -67,7 +69,7 @@ def download_file_from_gcs_cloud(file_name: str, target_directory: str) -> str:
     """
     logger.info(f"download_file_from_spring_boot called with file_name='{file_name}', target_directory='{target_directory}'")
     
-    url = f"http://localhost:8081/download-file?fileName={file_name}"
+    url = f"{BACKEND_SERVER_URL}/download-file?fileName={file_name}"
 
     full_target_directory = os.getenv('LOCAL_FILE_STORAGE') + "/" + target_directory
     logger.info(f"full_target_directory: {full_target_directory}")
@@ -98,7 +100,7 @@ def summarize_images_in_cloud_folder(folder_name: str) -> dict:
     Returns:
         dict: The summary data returned by the endpoint.
     """
-    url = f"http://localhost:8081/summarize-images-in-folder?folder={folder_name}"
+    url = f"{BACKEND_SERVER_URL}/summarize-images-in-folder?folder={folder_name}"
     logger.info(f"Requesting image summary for folder: {folder_name} from {url}")
     response = requests.get(url)
     response.raise_for_status()
@@ -121,7 +123,7 @@ def generate_expense_report(folder_name: str) -> dict:
     Returns:
         dict: The expense report data returned by the endpoint.
     """
-    url = f"http://localhost:8081/generate-expense-report?folder={folder_name}"
+    url = f"{BACKEND_SERVER_URL}/generate-expense-report?folder={folder_name}"
     logger.info(f"Requesting expense report for folder: {folder_name} from {url}")
     response = requests.get(url)
     response.raise_for_status()

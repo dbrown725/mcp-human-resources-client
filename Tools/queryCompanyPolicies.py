@@ -1,12 +1,18 @@
 from typing import Union, Optional
+import os
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BACKEND_SERVER_URL = os.getenv("BACKEND_SERVER_URL", "http://localhost:8081")
 
 
 def query_company_policies(
     question: str,
     topK: Optional[int] = None,
     similarityThreshold: Optional[float] = None,
-    base_url: str = "http://localhost:8081/ai/company-policies",
+    base_url: str = f"{BACKEND_SERVER_URL}/ai/company-policies",
     timeout: float = 30.0,
 ) -> Union[dict, str]:
     """

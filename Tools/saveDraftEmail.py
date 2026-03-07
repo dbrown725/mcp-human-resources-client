@@ -20,7 +20,7 @@ def save_draft_email(
     attachment_paths: Optional[List[str]] = None,
     storage_attachments: Optional[List[str]] = None,
     in_reply_to_message_id: Optional[str] = None,
-    base_url: str = "http://localhost:8081/save-draft-email",
+    base_url: str = os.getenv("BACKEND_SERVER_URL", "http://localhost:8081") + "/save-draft-email",
 ) -> str:
     """
     Save an email draft via the Java endpoint /save-draft-email.

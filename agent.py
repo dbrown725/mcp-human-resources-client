@@ -1,5 +1,5 @@
 from pydantic_ai import Agent
-from pydantic_ai.models.openai import OpenAIModel
+from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.openrouter import OpenRouterProvider
 from pydantic_ai.models.google import GoogleModel
 from pydantic_ai.providers.google import GoogleProvider
@@ -30,7 +30,7 @@ load_dotenv()
 logfire.configure()
 
 try:
-    # model = OpenAIModel(
+    # model = OpenAIChatModel(
     #     'moonshotai/kimi-k2.5', #  x-ai/grok-4-fast moonshotai/kimi-k2.5
     #     provider=OpenRouterProvider(api_key=os.getenv('OPENROUTER_API_KEY')),
     # )
@@ -50,14 +50,14 @@ try:
         system_prompt=(
             ' You are an assistant who answers all questions. '
         ),
-        mcp_servers=[servers.playwright_mcp_server, servers.mcp_human_resources_server, servers.filesystem_mcp_server])
+        toolsets=[servers.playwright_mcp_server, servers.mcp_human_resources_server, servers.filesystem_mcp_server])
 
 except Exception as e:
     logger.error(f"Failed to create agent: {e}")
     print(f"\n Error: Failed to create agent: {e}")
 
 async def main():
-    async with agent.run_mcp_servers():
+    async with agent:
         initial_prompt = 'Introduce yourself and list all tools/functions separated into a category-based layout with each category title having a category speific icon' \
         'Note that all prompts which reference a local file or directory should be assumed relative to the allowed directory: ' + os.getenv('LOCAL_FILE_STORAGE')
 

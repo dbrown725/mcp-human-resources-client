@@ -69,6 +69,20 @@ Employee Database related prompts
 
     Show me employee 5386. Include all fields for the employee and all fields for the employee's manager.
 
+    Show me all employees who live in arizona
+
+    How many employees live in NC
+
+    Show me all employees who live in chicago
+
+    There are 13 employees who live in Valdosta.
+
+    How many employees live in 30066
+
+    Show me all employees who live in 98101
+
+    Show me a list of all states our employees live in, counts of employees per state and percentage of employees in each state. Show results in a table format.
+
 Geo lookup related
     Show me the longitude and latitude of Boston, Massachusetts.
 
@@ -114,6 +128,8 @@ Google Cloud Storage. Sample expense receipt images can be found at https://gith
     Note: occasionally fails on resolving the proper attachment full paths. 
 
     Generate an image of the Marx Brothers as 3D Figurines. Name the file marxBrothers.
+
+    Generate an image of a scene from the disney tv show Andor in the style of the french artist jean giraud moebius.
 
     Generate an image named bullRoastRunner. The image should be a bull roast taking place in the Blade Runner universe.
 

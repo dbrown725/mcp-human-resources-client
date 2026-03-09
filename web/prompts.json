@@ -1,0 +1,234 @@
+[
+  {
+    "category": "Elastic Search Related",
+    "prompts": [
+      {
+        "text": "Show me all custom indices",
+        "comment": ""
+      },
+      {
+        "text": "Show me mappings for the hr-policy-rag-index index",
+        "comment": ""
+      },
+      {
+        "text": "Can I ask coworkers to donate to a personal fundraiser during work hours, or does Mega Corp have a solicitation policy that limits this?",
+        "comment": "Queries the company policy RAG index."
+      },
+      {
+        "text": "What is the policy if two coworkers start dating? Are there disclosure requirements, especially if one person could influence the other's assignments?",
+        "comment": "Queries the company policy RAG index."
+      },
+      {
+        "text": "I drive a company vehicle between sites. What is the official rule for mobile phone calls, texting, or navigation use while driving?",
+        "comment": "Queries the company policy RAG index."
+      }
+    ]
+  },
+  {
+    "category": "Playwright Related",
+    "prompts": [
+      {
+        "text": "Step 1) Navigate to https://markets.businessinsider.com/commodities, collect the current Agriculture prices. Step 2) Write a brief sentence describing the prices. Step 3) Save a draft email: email recipient address = john.doe@megacorp.com, email subject = \"Agriculture Prices\" and the body of the email = Your brief sentence from step 2 and an actual listing of the Agriculture prices. Include a blank line between your brief sentence and the prices. Put the individual Agriculture prices on separate lines if possible. At the bottom include: \"Best wishes,\" followed by a new line then \"Jim Smith\" Close and release the browser when complete.",
+        "comment": "Multi-step prompt: scrapes commodity prices, summarizes them, and saves a draft email."
+      },
+      {
+        "text": "Navigate to https://finance.yahoo.com/lookup/, find the input field that contains the \"Quote Lookup\" placeholder, use it to search for AAPL and capture any relevant text information including the current stock price. Show me all related information you find. Do not take a screen shot, I am only interested in text. Close and release the browser when complete.",
+        "comment": ""
+      },
+      {
+        "text": "Navigate to https://dnr.maryland.gov/publiclands/Pages/outdooreduc.aspx. Click on the \"Project Butterfly & Bumblebee\" link and return a summary of the \"Project Butterfly & Bumblebee\" page's content for display.",
+        "comment": ""
+      }
+    ]
+  },
+  {
+    "category": "Brave Search Related",
+    "prompts": [
+      {
+        "text": "Search the web for the band \"Pixies\" and show me the top ten results.",
+        "comment": ""
+      },
+      {
+        "text": "I have a csv file I need to fill out for the company Morgan Stanley in New York, New York. Here is the csv file column headers: company_name,company_bio,services_and_products,entity_type,street_address_1,street_address_2,city,state,zip_code,phone_number,website,social_media_facebook,social_media_twitter,social_media_linkedin,social_media_youtube. Based on your knowledge can you help me collect the data.",
+        "comment": "First of two prompts — run this one first, then run the next prompt in the list."
+      },
+      {
+        "text": "That is good. Let us include that in a draft email. Email Recipient: john.doe@megacorp.com, Email Subject: Morgan Stanley and the Body: will be a brief paragraph you write for me on why Morgan Stanley is a great company for purchasing ETFs and Mutual Funds. Under the paragraph include the csv data just as you returned it to me. Please include the appropriate line breaks and new lines in the body.",
+        "comment": "Second of two prompts — run this after the Morgan Stanley csv prompt above."
+      }
+    ]
+  },
+  {
+    "category": "Employee Database Related",
+    "prompts": [
+      {
+        "text": "From https://www.bls.gov/cps/cpsaat11.htm, here are the national demographic percentages for Sales managers. Women: 32.9, white: 87.4, Black: 7.8, Asian: 3.1, Latino: 10.2 Search our employees for Department: Sales, Title: Manager, Page size: 20 and write a paragraph or two that describes how my company's employees compare. Afterwards create a draft email to john.doe@megacorp.com with subject: Sales Manager's demographics. Include in the body of the email a reference to the bls url and their stats plus your paragraphs describing how our employees compare.",
+        "comment": "Multi-step prompt: compares company demographics to BLS national data and drafts an email."
+      },
+      {
+        "text": "How many employees in IT are Asian?",
+        "comment": ""
+      },
+      {
+        "text": "Search for employees which are in the Sales department and are Asian. Sort by age ascending. Show me the page number 4 of size 10 and format the results horizontally.",
+        "comment": "You can page through the results in your next prompts: \"Page 2\" then \"Page 3\" etc.."
+      },
+      {
+        "text": "Complete the following steps: Step 1) List the ALLOWED directory. Step 2) I need employee head count for each department. Run separate count queries for each of the following departments: Accounting, Engineering, Finance, Human Resources, IT, Marketing, Sales. For each department I want to know how many males we have and how many females we have. For each department I want to know how many Asian, Black, Caucasian, Latino we have. Step 3) In .csv format display for each Department, Total count, Male count, Female count, Asian count, Black count, Caucasian count, Latino count. Step 4) create a file named mega_corp_employee_demographics.csv in the ALLOWED directory Step 5) save the .csv data to the new file that was just created named: mega_corp_employee_demographics.csv. Step 6) upload the file to GCS",
+        "comment": "Multi-step prompt: gathers department demographics, creates a CSV, and uploads to GCS."
+      },
+      {
+        "text": "Create a new employee named Randy Broussard.",
+        "comment": "First of two prompts — run this one first, then run the next prompt to update the manager."
+      },
+      {
+        "text": "Update Randy Broussard with a manager id equal to 5520",
+        "comment": "Second of two prompts — run this after creating the employee above."
+      },
+      {
+        "text": "Show me the record of employee 5615, include all fields from the employee's address.",
+        "comment": ""
+      },
+      {
+        "text": "Find all employees with a hire date 2017-09-11",
+        "comment": ""
+      },
+      {
+        "text": "Find employees with termination date 2018-09-29",
+        "comment": ""
+      },
+      {
+        "text": "Show me employee 5386. Include all fields for the employee and all fields for the employee's manager.",
+        "comment": ""
+      },
+      {
+        "text": "Show me all employees who live in arizona",
+        "comment": ""
+      },
+      {
+        "text": "How many employees live in NC",
+        "comment": ""
+      },
+      {
+        "text": "Show me all employees who live in chicago",
+        "comment": ""
+      },
+      {
+        "text": "There are 13 employees who live in Valdosta.",
+        "comment": "Tests the agent's ability to verify a stated fact."
+      },
+      {
+        "text": "How many employees live in 30066",
+        "comment": ""
+      },
+      {
+        "text": "Show me all employees who live in 98101",
+        "comment": ""
+      },
+      {
+        "text": "Show me a list of all states our employees live in, counts of employees per state and percentage of employees in each state. Show results in a table format.",
+        "comment": ""
+      }
+    ]
+  },
+  {
+    "category": "Geo Lookup Related",
+    "prompts": [
+      {
+        "text": "Show me the longitude and latitude of Boston, Massachusetts.",
+        "comment": ""
+      }
+    ]
+  },
+  {
+    "category": "Addition Related",
+    "prompts": [
+      {
+        "text": "What is 22 plus six, show result in English.",
+        "comment": ""
+      },
+      {
+        "text": "22 に 6 を足すと何になるか、結果を英語で表示します",
+        "comment": "Same addition prompt in Japanese."
+      }
+    ]
+  },
+  {
+    "category": "Google Cloud Storage",
+    "prompts": [
+      {
+        "text": "Upload to the cloud test.txt",
+        "comment": ""
+      },
+      {
+        "text": "Read the GCS file named test.txt",
+        "comment": ""
+      },
+      {
+        "text": "List the contents of the GCS bucket expense_receipts/ directory.",
+        "comment": ""
+      },
+      {
+        "text": "Upload the file Outgoing/20250831_20250913/intellicare_solutions.jpeg to the expense_receipts/20250831_20250913/ Cloud directory.",
+        "comment": ""
+      },
+      {
+        "text": "List all files and folders in the allowed directory. Upload all files in the Outgoing/20250831_20250913 directory to the expense_receipts/20250831_20250913 Cloud directory.",
+        "comment": ""
+      },
+      {
+        "text": "Summarize the images in the cloud folder: expense_receipts/20250831_20250913",
+        "comment": ""
+      },
+      {
+        "text": "Generate an expense report for the images in the cloud folder: expense_receipts/20250831_20250913",
+        "comment": ""
+      },
+      {
+        "text": "Read the cloud file named expense_receipts/20250831_20250913/expense_report.csv",
+        "comment": ""
+      },
+      {
+        "text": "Download from the cloud all files in expense_receipts/20250831_20250913 to the Incoming/Attachments folder.",
+        "comment": ""
+      },
+      {
+        "text": "Download from the cloud the file expense_receipts/20250831_20250913/techwave_solutions.jpg to the Incoming/Attachments directory.",
+        "comment": ""
+      },
+      {
+        "text": "Write a draft email addressed to karen@hr.megacorp.com, Subject: Jim Smith's Expense Report 20250831_20250913. Body: Dear Karen, please find attached my expense report and associated expense receipts for the time period 20250831 thru 20250913. Include a brief description of the expense receipts and the related expense report. Sincerely, Jim Smith Attachments: Use all files located in the ALLOWED directory's subdirectory - Incoming/Attachments.",
+        "comment": "Multi-step prompt: drafts an email with file attachments from a local directory."
+      },
+      {
+        "text": "Generate an image of the Marx Brothers as 3D Figurines. Name the file marxBrothers.",
+        "comment": ""
+      },
+      {
+        "text": "Generate an image of a scene from the disney tv show Andor in the style of the french artist jean giraud moebius.",
+        "comment": ""
+      },
+      {
+        "text": "Generate an image named bullRoastRunner. The image should be a bull roast taking place in the Blade Runner universe.",
+        "comment": ""
+      },
+      {
+        "text": "Generate a new image named catCircus. The image should depict a cat in a circus balancing on a ball. Use the original_images/cat-close-up-of-side-profile.webp image as the original input image name.",
+        "comment": ""
+      },
+      {
+        "text": "Generate a badge for employee Randy Broussard with employee number 6000. His image is original_images/randy_broussard.jpg",
+        "comment": ""
+      }
+    ]
+  },
+  {
+    "category": "Weather Forecast and Alerts",
+    "prompts": [
+      {
+        "text": "What is the weather like in Alaska?",
+        "comment": ""
+      }
+    ]
+  }
+]

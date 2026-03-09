@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MCP HOST</title>
+    <title>AI Agent Hub</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="/eel.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
-    <div class="title">MCP HOST</div>
+    <div class="title">AI Agent Hub</div>
     <div class="introduction">Welcome, enter a prompt to get started.</div>
     <div id="output">
     </div>
@@ -21,7 +21,8 @@
         <span class="arrow-icon"><i class="fas fa-arrow-alt-circle-up"></i></span>
     </div>
     <div class="new-chat-container">
-        <button id="toolsInUseButton" title="Opens a modal showing tools currently in use.">Tools In Use</button>
+        <button id="toolsInUseButton" title="Opens a modal showing tools currently in use.">Tools</button>
+        <button id="promptsButton" title="Opens a modal containing categorized prompts.">Prompts</button>
         <button id="recentSearchesButton" title="Opens a modal containing selectable recent searches.">Recent Searches</button>
         <button id="newChatButton" title="Clears the chat history and resets screen">New Chat</button>
     </div>
@@ -40,6 +41,15 @@
             <p>Tools currently in use:</p>
             <div id="toolsInUse"></div>
         </div>
+    </div>
+    <div id="promptsModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="prompts-close">&times;</span>
+            <p>Select a prompt to populate the input field.</p>
+            <div id="promptsContainer"></div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

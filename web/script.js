@@ -146,6 +146,58 @@ toolsCloseSpan.onclick = function() {
   toolsModal.style.display = "none";
 }
 
+// --- Prompts Modal ---
+var promptsModal = document.getElementById("promptsModal");
+var promptsButton = document.getElementById("promptsButton");
+var promptsCloseSpan = document.querySelector('#promptsModal .prompts-close');
+
+promptsButton.onclick = function() {
+  promptsModal.style.display = "block";
+}
+
+promptsCloseSpan.onclick = function() {
+  promptsModal.style.display = "none";
+}
+
+// Load prompts.json and render into the modal
+function loadPrompts() {
+  fetch('prompts.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('promptsContainer');
+      container.innerHTML = '';
+      data.forEach(category => {
+        // Category header
+        const header = document.createElement('div');
+        header.className = 'prompts-category-header';
+        header.textContent = category.category;
+        container.appendChild(header);
+
+        category.prompts.forEach((prompt, index) => {
+          // Comment (non-clickable guidance)
+          if (prompt.comment && prompt.comment.trim() !== '') {
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'prompts-comment';
+            commentDiv.textContent = prompt.comment;
+            container.appendChild(commentDiv);
+          }
+          // Clickable prompt text
+          const promptDiv = document.createElement('div');
+          promptDiv.className = `prompts-item ${index % 2 === 0 ? 'grey-bg' : 'white-bg'}`;
+          promptDiv.textContent = prompt.text;
+          promptDiv.addEventListener('click', () => {
+            textarea.value = prompt.text;
+            textarea.style.height = '';
+            textarea.style.height = textarea.scrollHeight + 'px';
+            promptsModal.style.display = "none";
+          });
+          container.appendChild(promptDiv);
+        });
+      });
+    })
+    .catch(err => console.error('Failed to load prompts:', err));
+}
+
 // When the user clicks anywhere outside of the tools modal, close it
 window.onclick = function(event) {
   if (event.target == toolsModal) {
@@ -154,9 +206,15 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+  if (event.target == promptsModal) {
+    promptsModal.style.display = "none";
+  }
 }
 
-window.addEventListener('load', populateRecentInputsDiv);
+window.addEventListener('load', function() {
+  populateRecentInputsDiv();
+  loadPrompts();
+});
 
 let firstOutputComplete = false;
 let timeoutStarted = false;

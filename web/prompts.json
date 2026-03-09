@@ -28,11 +28,11 @@
     "category": "Playwright Related",
     "prompts": [
       {
-        "text": "Step 1) Navigate to https://markets.businessinsider.com/commodities, collect the current Agriculture prices. Step 2) Write a brief sentence describing the prices. Step 3) Save a draft email: email recipient address = john.doe@megacorp.com, email subject = \"Agriculture Prices\" and the body of the email = Your brief sentence from step 2 and an actual listing of the Agriculture prices. Include a blank line between your brief sentence and the prices. Put the individual Agriculture prices on separate lines if possible. At the bottom include: \"Best wishes,\" followed by a new line then \"Jim Smith\" Close and release the browser when complete.",
+        "text": "Step 1) Navigate to https://markets.businessinsider.com/commodities, collect the current Agriculture prices. Step 2) Write a brief sentence describing the prices. Step 3) Save a draft email: email recipient address = john.doe@megacorp.com, email subject = \"Agriculture Prices\" and the body of the email = Your brief sentence from step 2 and an actual listing of the Agriculture prices. Include a blank line between your brief sentence and the prices. Put the individual Agriculture prices on separate lines if possible. At the bottom include: \"Best wishes,\" followed by a new line then \"Jim Smith\" ",
         "comment": "Multi-step prompt: scrapes commodity prices, summarizes them, and saves a draft email."
       },
       {
-        "text": "Navigate to https://finance.yahoo.com/lookup/, find the input field that contains the \"Quote Lookup\" placeholder, use it to search for AAPL and capture any relevant text information including the current stock price. Show me all related information you find. Do not take a screen shot, I am only interested in text. Close and release the browser when complete.",
+        "text": "Navigate to https://finance.yahoo.com/lookup/, find the input field that contains the \"Quote Lookup\" placeholder, use it to search for AAPL and capture any relevant text information including the current stock price. Show me all related information you find. Do not take a screen shot, I am only interested in text. ",
         "comment": ""
       },
       {

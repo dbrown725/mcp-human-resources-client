@@ -106,7 +106,4 @@ sudo chmod -R 777 /var/log/mcp-human-resources-client
 15. To Run<br>
         If using mcp_human_resources_server make sure the app is started<br>
         then<br>
-        python3 main.py
-
-16. For sample prompts see:<br>
-        prompts.txt        
+        python3 main.py     

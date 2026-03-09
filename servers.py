@@ -4,18 +4,18 @@ from dotenv import load_dotenv
 
 load_dotenv() 
 
-BACKEND_SERVER_URL = os.getenv("BACKEND_SERVER_URL", "http://localhost:8081")
-
 # https://github.com/dbrown725/mcp-human-resources
 # Server running on laptop
-mcp_human_resources_server = MCPServerSSE(url=f"{BACKEND_SERVER_URL}/sse")
+mcp_human_resources_server = MCPServerSSE(url="http://localhost:8081/sse")
 
 # https://github.com/microsoft/playwright-mcp
+# env passes DISPLAY/:1 so the browser opens headed on Pop!_OS
 playwright_mcp_server = MCPServerStdio(
     command= "npx",
     args=[
         "@playwright/mcp@latest",
-        ]
+        ],
+    env={**os.environ}
 )
 
 # https://www.npmjs.com/package/@modelcontextprotocol/server-filesystem

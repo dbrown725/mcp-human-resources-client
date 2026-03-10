@@ -1,5 +1,127 @@
 # mcp-human-resources-client
-Python EEL UI based MCP Host app for Pydantic AI MCP interaction and testing with the mcp-human-resources Spring Boot app.
+An AI-powered agent hub with a Python Eel web UI, built on Pydantic AI and the Model Context Protocol (MCP). Connects to multiple MCP servers — including a Spring Boot HR backend, Playwright browser automation, and a local filesystem server — to orchestrate employee management, cloud storage, email, image generation, Elasticsearch, and more through natural language.
+
+<p align="center">
+  <img src="images/webpage.png" alt="AI Agent Hub" />
+</p>
+
+## Available Agent Tools
+
+<details>
+<summary><strong>Front-End Tools (Python Client)</strong></summary>
+
+| Tool | Description |
+|------|-------------|
+| **add** | Adds two numbers and returns the sum. |
+| **get_geo_location** | Get geolocation coordinates based on city and state. |
+
+> **Note:** The following tools require the [mcp-human-resources](https://github.com/dbrown725/mcp-human-resources) Spring Boot back-end to be running.
+
+| Tool | Description |
+|------|-------------|
+| **upload_file_to_cloud** | Upload a local file to Google Cloud Storage with an optional destination path. |
+| **download_file_from_cloud** | Download a file from Google Cloud Storage to a local directory. |
+| **summarize_images_in_folder** | Summarize images in a specified cloud folder. |
+| **create_expense_report** | Generate an expense report for images in a specified cloud folder. |
+| **create_employee_badge** | Generate an employee badge using name, employee number, and employee image. |
+| **query_company_policies_tool** | Query company policies using semantic similarity search (Elasticsearch RAG). |
+| **save_draft_email_new** | Save a draft email via the Java endpoint with optional local and cloud attachments. |
+
+</details>
+
+### Back-End MCP Server Tools
+
+<details>
+<summary><strong>Playwright MCP Server — Browser Automation</strong></summary>
+
+| Tool | Description |
+|------|-------------|
+| **browser_navigate** | Navigate to a URL. |
+| **browser_click** | Click an element on a web page. |
+| **browser_type** | Type text into an editable element. |
+| **browser_fill_form** | Fill multiple form fields at once. |
+| **browser_snapshot** | Capture an accessibility snapshot of the current page (preferred for actions). |
+| **browser_take_screenshot** | Take a screenshot of the current page. |
+| **browser_select_option** | Select an option in a dropdown. |
+| **browser_hover** | Hover over an element on the page. |
+| **browser_drag** | Drag and drop between two elements. |
+| **browser_press_key** | Press a key on the keyboard. |
+| **browser_file_upload** | Upload one or multiple files. |
+| **browser_tabs** | List, create, close, or select a browser tab. |
+| **browser_navigate_back** | Go back to the previous page. |
+| **browser_evaluate** | Evaluate a JavaScript expression on the page. |
+| **browser_console_messages** | Return all console messages. |
+| **browser_network_requests** | Return all network requests since the page loaded. |
+| **browser_handle_dialog** | Handle a browser dialog. |
+| **browser_resize** | Resize the browser window. |
+| **browser_run_code** | Run a Playwright code snippet. |
+| **browser_wait_for** | Wait for text to appear/disappear or a specified time to pass. |
+| **browser_install** | Install the browser specified in the config. |
+| **browser_close** | Close the page. |
+
+</details>
+
+<details>
+<summary><strong>mcp-human-resources Spring Boot Server — Employee Database, Search & More</strong></summary>
+
+| Tool | Description |
+|------|-------------|
+| **search_employees** | Paginated employee search with filters for name, age, department, title, gender, ethnicity, dates, salary, and more. |
+| **count_employees** | Count employees matching optional filter parameters. |
+| **get_employee_with_id** | Get a single employee by ID. |
+| **save_employee** | Create a new employee from a full employee object. |
+| **save_employee_with_name** | Create a new employee using first and last name. |
+| **update_employee** | Update specific fields of an existing employee by ID. |
+| **delete_employee_with_id** | Delete a single employee by ID. |
+| **search_employees_in_state** | Search employees by US state (full name or 2-letter code). |
+| **search_employees_in_city** | Search employees by city (case-insensitive). |
+| **search_employees_in_zipcode** | Search employees by ZIP/postal code. |
+| **count_employees_in_state** | Count employees in a US state. |
+| **count_employees_in_city** | Count employees in a city. |
+| **count_employees_in_zipcode** | Count employees by ZIP/postal code. |
+| **get_address_with_id** | Get a single address by ID. |
+| **save_address** | Create a new address. |
+| **delete_address_with_id** | Delete a single address by ID. |
+| **fetch_address_list** | Get a list of all addresses. |
+| **search_addresses** | Search addresses by city, state, postal code, or remote status. |
+| **search** | Perform an Elasticsearch search with a query DSL. |
+| **list_indices** | List all available Elasticsearch indices. |
+| **get_mappings** | Get field mappings for a specific Elasticsearch index. |
+| **get_shards** | Get shard information for all or specific indices. |
+| **braveSearch** | Search Brave Search for information and extract entities. |
+| **getWeatherForecastByLocation** | Get weather forecast for a specific latitude/longitude. |
+| **getAlerts** | Get weather alerts for a US state (two-letter code). |
+| **generateImage** | Generate an image from a prompt using Gemini API and upload to GCS. |
+| **readInbox** | Read Gmail inbox emails with optional filtering by subject, sender, date range, and read/unread status. |
+| **markEmailAsRead** | Mark a specific email as read by Message-ID. |
+| **storage_read_file** | Read a file from Google Cloud Storage. |
+| **storage_list_files** | List files in a GCS bucket with a given prefix. |
+| **storage_list_file_urls** | Return public URLs for all files in a GCS folder. |
+| **storage_delete_file** | Delete a file from Google Cloud Storage. |
+| **keep_alive** | Returns a keep-alive response. |
+
+</details>
+
+<details>
+<summary><strong>Filesystem MCP Server — Local File Operations</strong></summary>
+
+| Tool | Description |
+|------|-------------|
+| **list_allowed_directories** | List directories this server is allowed to access. |
+| **list_directory** | List all files and directories in a path. |
+| **list_directory_with_sizes** | List files and directories with sizes. |
+| **directory_tree** | Get a recursive tree view of files and directories as JSON. |
+| **read_text_file** | Read a file's contents as text. |
+| **read_media_file** | Read an image or audio file as base64 encoded data. |
+| **read_multiple_files** | Read multiple files simultaneously. |
+| **write_file** | Create or overwrite a file with new content. |
+| **edit_file** | Make line-based edits to a text file. |
+| **create_directory** | Create a new directory or ensure it exists. |
+| **move_file** | Move or rename files and directories. |
+| **search_files** | Recursively search for files matching a pattern. |
+| **get_file_info** | Retrieve detailed metadata about a file or directory. |
+
+</details>
 
 ## Installation
 Assumes Linux with the latest python, node and npm

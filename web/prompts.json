@@ -66,11 +66,11 @@
         "comment": "Multi-step prompt: compares company demographics to BLS national data and drafts an email."
       },
       {
-        "text": "How many employees in IT are Asian?",
+        "text": "How many employees in IT are Female?",
         "comment": ""
       },
       {
-        "text": "Search for employees which are in the Sales department and are Asian. Sort by age ascending. Show me the page number 4 of size 10 and format the results horizontally.",
+        "text": "Search for employees which are in the IT department and have the title of Network Administrator. Sort by age ascending. Show me page number 4 of size 4 and format the results horizontally.",
         "comment": "You can page through the results in your next prompts: \"Page 2\" then \"Page 3\" etc.."
       },
       {
@@ -170,31 +170,31 @@
       },
       {
         "text": "Upload the file Outgoing/20250831_20250913/intellicare_solutions.jpeg to the expense_receipts/20250831_20250913/ Cloud directory.",
-        "comment": ""
+        "comment": "Expense receipt images can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images and must be placed in the local ALLOWED directory's Outgoing/20250831_20250913 subfolder."
       },
       {
         "text": "List all files and folders in the allowed directory. Upload all files in the Outgoing/20250831_20250913 directory to the expense_receipts/20250831_20250913 Cloud directory.",
-        "comment": ""
+        "comment": "Expense receipt images can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images and must be placed in the local ALLOWED directory's Outgoing/20250831_20250913 subfolder."
       },
       {
         "text": "Summarize the images in the cloud folder: expense_receipts/20250831_20250913",
-        "comment": ""
+        "comment": "Expense receipt images must already be uploaded to the GCS bucket. Images can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images."
       },
       {
         "text": "Generate an expense report for the images in the cloud folder: expense_receipts/20250831_20250913",
-        "comment": ""
+        "comment": "Expense receipt images must already be uploaded to the GCS bucket. Images can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images."
       },
       {
         "text": "Read the cloud file named expense_receipts/20250831_20250913/expense_report.csv",
-        "comment": ""
+        "comment": "The expense_report.csv must already exist in GCS. Run the 'Generate an expense report' prompt first to create it."
       },
       {
         "text": "Download from the cloud all files in expense_receipts/20250831_20250913 to the Incoming/Attachments folder.",
-        "comment": ""
+        "comment": "Expense receipt images must already be uploaded to the GCS bucket. Images can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images."
       },
       {
         "text": "Download from the cloud the file expense_receipts/20250831_20250913/techwave_solutions.jpg to the Incoming/Attachments directory.",
-        "comment": ""
+        "comment": "Image can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images and must be uploaded to the GCS bucket associated with the back-end server."
       },
       {
         "text": "Write a draft email addressed to karen@hr.megacorp.com, Subject: Jim Smith's Expense Report 20250831_20250913. Body: Dear Karen, please find attached my expense report and associated expense receipts for the time period 20250831 thru 20250913. Include a brief description of the expense receipts and the related expense report. Sincerely, Jim Smith Attachments: Use all files located in the ALLOWED directory's subdirectory - Incoming/Attachments.",
@@ -214,11 +214,11 @@
       },
       {
         "text": "Generate a new image named catCircus. The image should depict a cat in a circus balancing on a ball. Use the original_images/cat-close-up-of-side-profile.webp image as the original input image name.",
-        "comment": ""
+        "comment": "Image can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images and must be uploaded to the GCS bucket associated with the back-end server."
       },
       {
         "text": "Generate a badge for employee Randy Broussard with employee number 6000. His image is original_images/randy_broussard.jpg",
-        "comment": ""
+        "comment": "Employee images can be found at https://github.com/dbrown725/mcp-human-resources/tree/main/src/main/resources/images and must be uploaded to the GCS bucket associated with the back-end server."
       }
     ]
   },

@@ -159,10 +159,8 @@ npm i @modelcontextprotocol/server-filesystem
 ```bash
 uv pip install -r requirements.txt
 ```
-<b> Steps 6-8 below can be skipped by creating an .env file at the base of the project and including your appropriate values.<br>
+<b> Steps 6 below can be skipped by creating an .env file at the base of the project and including your appropriate values.<br>
 GROQ_API_KEY=... or GEMINI_API_KEY=... or OPENROUTER_API_KEY=...<br>
-GMAIL_EMAIL_ADDRESS=...<br>
-GMAIL_EMAIL_APP_PASSWORD=...<br>
 LOCAL_FILE_STORAGE=...<br>
 BACKEND_SERVER_URL=...<br>
 SESSION_KEEP_ALIVE_MINUTES=...
@@ -177,43 +175,35 @@ or
 export OPENROUTER_API_KEY=<YOUR_OPENROUTER_API_KEY>
 ```
 
-7. If using GMAIL<br>
-Email configuration, currently only Save Draft is fully hooked up.<br>
-Password in NOT your normal gmail password, the password needs to be an APP password: https://support.google.com/mail/answer/185833?hl=en
-```bash
-export GMAIL_EMAIL_ADDRESS=<GMAIL_ADDRESSS>
-export GMAIL_EMAIL__APP_PASSWORD=<GMAIL_APP_PASSWORD>
-```
-
-8. If using tools.upload_file_to_cloud, tools.download_file_from_cloud or servers.filesystem_mcp_server<br>
+7. If using tools.upload_file_to_cloud, tools.download_file_from_cloud or servers.filesystem_mcp_server<br>
 ```bash
 export LOCAL_FILE_STORAGE=<A local file directory to be used for general file access and/or uploading/downloading files.>
 ``` 
 
-9. Set the backend server URL (defaults to http://localhost:8081 if not set)<br>
+8. Set the backend server URL (defaults to http://localhost:8081 if not set)<br>
 ```bash
 export BACKEND_SERVER_URL=<URL of the mcp-human-resources Spring Boot backend, e.g. http://localhost:8081>
 ``` 
 
-10. Set your preferred session timeout period in minutes. This represents the period of time allowed between user request submission.<br>
+9. Set your preferred session timeout period in minutes. This represents the period of time allowed between user request submission.<br>
 ```bash
 export SESSION_KEEP_ALIVE_MINUTES=<For example 15 for a fifteen minute timeout>
 ``` 
 
-11. Setup log directory and file
+10. Setup log directory and file
 ```bash
 sudo mkdir /var/log/mcp-human-resources-client
 sudo touch /var/log/mcp-human-resources-client/mcp-human-resources-client.log
 sudo chmod -R 777 /var/log/mcp-human-resources-client
 ```
 
-12. Setup Logfire<br>
+11. Setup Logfire<br>
     Follow Logfire Getting Started instructions: https://logfire.pydantic.dev/docs/
 
-13. If testing against the mcp-human-resources Spring Boot app<br>
+12. If testing against the mcp-human-resources Spring Boot app<br>
     Clone, build and run: https://github.com/dbrown725/mcp-human-resources
 
-14. Update the agent object instantiation in agent.py with specific tools, model and mcp servers you are using.<br><br>
+13. Update the agent object instantiation in agent.py with specific tools, model and mcp servers you are using.<br><br>
     For instance if you aren't using gmail then:<br>
         tools=[tools.add, tools.saveDraftEmailContent, tools.getGeoLocation],<br>
     changes to<br>
@@ -225,7 +215,7 @@ sudo chmod -R 777 /var/log/mcp-human-resources-client
     Configure your preferred model, see Pydantic AI guide:<br>
     https://ai.pydantic.dev/models/
 
-15. To Run<br>
+14. To Run<br>
         If using mcp_human_resources_server make sure the app is started<br>
         then<br>
         python3 main.py     

@@ -5,6 +5,7 @@ from Tools.cloudUploadDownload import download_file_from_gcs_cloud
 from Tools.cloudUploadDownload import summarize_images_in_cloud_folder
 from Tools.cloudUploadDownload import generate_expense_report
 from Tools.generateEmployeeBadge import generate_employee_badge
+from Tools.onboardEmployee import onboard_employee
 from Tools.queryCompanyPolicies import query_company_policies
 from Tools.saveDraftEmail import save_draft_email
 
@@ -103,6 +104,34 @@ def create_expense_report(folder_path: str) -> str:
 def create_employee_badge(first_name: str, last_name: str, employee_number: str, existing_employee_image_name: str) -> str:
     """Generate an employee badge using first name, last name, employee number, and existing employee image name."""
     return generate_employee_badge(first_name, last_name, employee_number, existing_employee_image_name)
+
+def onboard_new_employee(
+    employee_image_path: str,
+    csv_file_path: str,
+    first_name: str,
+    last_name: str,
+    personal_email: str,
+) -> str:
+    """Initiate the employee onboarding workflow.
+    Requires an employee photo image and a CSV file (one header row + one data row with employee and address fields),
+    both located in the ALLOWED directory.
+    ****IMPORTANT**** - The allowed directory is assumed to be known by this tool, do not prepend the allowed directory
+    to the file paths supplied by the user. This tool will prepend the allowed directory automatically.
+
+    Args:
+        employee_image_path: Relative path to the employee's photo (jpg, png, etc.) within the allowed directory.
+        csv_file_path: Relative path to the CSV file within the allowed directory.
+        first_name: Employee's first name.
+        last_name: Employee's last name.
+        personal_email: Employee's personal email address.
+    """
+    return onboard_employee(
+        employee_image_path=employee_image_path,
+        csv_file_path=csv_file_path,
+        first_name=first_name,
+        last_name=last_name,
+        personal_email=personal_email,
+    )
 
 def query_company_policies_tool(
     question: str,

@@ -223,6 +223,15 @@
     ]
   },
   {
+    "category": "Employee Onboarding",
+    "prompts": [
+      {
+        "text": "Onboard a new employee: first name = Randy, last name = Broussard, personal email = randy.broussard@test.com, employee image = Outgoing/randy_broussard.jpg, csv file = Outgoing/onboarding_randy_broussard.csv",
+        "comment": "The employee image and CSV file must be placed in the ALLOWED directory before running this prompt. CSV template: https://github.com/dbrown725/mcp-human-resources/blob/main/src/test/resources/data/onboarding_randy_broussard.csv Employee image: https://github.com/dbrown725/mcp-human-resources/blob/main/src/main/resources/images/randy_broussard.jpg"
+      }
+    ]
+  },
+  {
     "category": "Weather Forecast and Alerts",
     "prompts": [
       {

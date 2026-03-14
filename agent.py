@@ -45,7 +45,7 @@ try:
         retries=3,
         tools=[tools.add, tools.get_geo_location, tools.upload_file_to_cloud, 
             tools.download_file_from_cloud, tools.summarize_images_in_folder, tools.create_expense_report,
-            tools.create_employee_badge,
+            tools.create_employee_badge, tools.onboard_new_employee,
             tools.query_company_policies_tool, tools.save_draft_email_new], #, tools.save_draft_email_local_files
         system_prompt=(
             ' You are an assistant who answers all questions. '
